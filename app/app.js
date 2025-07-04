@@ -76,7 +76,7 @@ const blogs = [
             util.job.anselm_powell_job, 'July 6st, 2024', util.profile.anselm_powell_profile),
     new Blog(
             'blog12', 'Rethinking Recruitment: Exploring the future of our HR Systems', 'Paul Batcup',
-            util.job.paul_batcup_job, 'July 7th, 2025', util.profile.paul_batcup_profile),
+            util.job.paul_batcup_job, 'July 4th, 2025', util.profile.paul_batcup_profile),
 ]
 
 function createPages(type) {
