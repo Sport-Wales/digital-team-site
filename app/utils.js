@@ -24,7 +24,7 @@ const job = {
     tara_rhoseyn_job: 'Software Developer',
     owen_sullivan_job: 'Deputy Digital Estate Lead',
     owen_burgess_job: 'Service Design and Development Lead',
-    anselm_powell_job: 'Digital Apprentice',
+    anselm_powell_job: 'Junior Software Developer',
     owain_morris_job: 'Senior Service Designer',
     phil_stephens_job: 'Information Security Lead',
     paul_batcup_job: 'Digital Programme Lead',
@@ -34,7 +34,7 @@ const job = {
     steffan_berrow_job: 'Service Design and Development Lead',
     tom_morgan_job: 'Digital Services Desk Technician',
     rhian_evans_job: 'Assistant Director for Communications and Strategic Digitalisation',
-    yusra_hussain_job: 'Digital Apprentice',
+    yusra_hussain_job: 'Junior Software Developer',
 }
 
 module.exports = {
