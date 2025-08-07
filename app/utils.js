@@ -25,7 +25,7 @@ const job = {
     owen_sullivan_job: 'Deputy Digital Estate Lead',
     owen_burgess_job: 'Service Design and Development Lead',
     anselm_powell_job: 'Digital Apprentice',
-    owain_morris_job: 'Service Design Officer',
+    owain_morris_job: 'Senior Service Designer',
     phil_stephens_job: 'Information Security Lead',
     paul_batcup_job: 'Digital Programme Lead',
     matt_kinnear_job: 'Digital Estate Lead',
