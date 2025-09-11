@@ -70,13 +70,13 @@ const blogs = [
         util.job.steffan_berrow_job, '9th December, 2023', util.profile.steffan_berrow_profile),
     new Blog(
         'blog10', 'Oh DAM! The journey to effective Digital Asset Management', 'Mathew James',
-        util.job.mathew_james_job, 'July 1st, 2024', util.profile.mathew_james_profile),
+        util.job.mathew_james_job, '1st July, 2024', util.profile.mathew_james_profile),
     new Blog(
             'blog11', 'The Home Court Advantage: Sport Wales’s In-House Development', 'Anselm Powell',
-            util.job.anselm_powell_job, 'July 6st, 2024', util.profile.anselm_powell_profile),
+            util.job.anselm_powell_job, '6th July, 2024', util.profile.anselm_powell_profile),
     new Blog(
             'blog12', 'Rethinking Recruitment: Exploring the future of our HR Systems', 'Paul Batcup',
-            util.job.paul_batcup_job, 'July 4th, 2025', util.profile.paul_batcup_profile),
+            util.job.paul_batcup_job, '4th July, 2025', util.profile.paul_batcup_profile),
     new Blog(
             'blog13', 'On your marks, get set, go online!', 'Mathew James',
             util.job.mathew_james_job, '8th September, 2025', util.profile.mathew_james_profile),
