@@ -36,6 +36,7 @@ const pages = [
     new Page('blogs-by-mathew-james', 'Blogs by Mathew James'),
     new Page('project-request-form', 'Project Request Form'),
     new Page('online-project-request-form', 'Online Project Request Form'),
+    new Page('blogs-by-anselm-powell', 'Blogs by Anselm Powell'),
 ]
 
 
