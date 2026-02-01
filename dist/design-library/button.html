@@ -1128,8 +1128,8 @@
     <div class="border border-gray-300 rounded-lg mb-8">
 
         <!-- Live Example -->
-        <div class="p-10 bg-gray-50">
-            <button class="inline-flex items-center justify-center h-12 px-6 text-white font-bold rounded-lg transition-colors duration-300" style="background-color: #164B64; font-family: 'Montserrat', sans-serif;" onmouseover="this.style.backgroundColor='#2E7799'" onmouseout="this.style.backgroundColor='#164B64'" onclick="void(0)">
+        <div class="p-10 bg-gray-50 flex justify-center">
+            <button class="sw-button sw-button-primary">
                 Save and continue
             </button>
         </div>
@@ -1226,8 +1226,8 @@
 
         <!-- Default Button Example -->
         <div class="border border-gray-300 rounded-lg mb-8">
-            <div class="p-10 bg-gray-50">
-                <button class="inline-flex items-center justify-center h-12 px-6 text-white font-bold rounded-lg transition-colors duration-300" style="background-color: #164B64; font-family: 'Montserrat', sans-serif;" onmouseover="this.style.backgroundColor='#2E7799'" onmouseout="this.style.backgroundColor='#164B64'" onclick="void(0)">
+            <div class="p-10 bg-gray-50 flex justify-center">
+                <button class="sw-button sw-button-primary">
                     Save and continue
                 </button>
             </div>
@@ -1251,8 +1251,8 @@
 
         <!-- Start Button Example -->
         <div class="border border-gray-300 rounded-lg mb-8">
-            <div class="p-10 bg-gray-50">
-                <a href="#" class="inline-flex items-center justify-center h-12 px-6 text-white font-bold rounded-lg transition-colors duration-300" style="background-color: #E32434; font-family: 'Montserrat', sans-serif;" onmouseover="this.style.backgroundColor='#C9202E'" onmouseout="this.style.backgroundColor='#E32434'" onclick="void(0)">
+            <div class="p-10 bg-gray-50 flex justify-center">
+                <a href="#" class="sw-button sw-button-start">
                     Start now
                     <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
@@ -1281,8 +1281,8 @@
 
         <!-- Secondary Button Example -->
         <div class="border border-gray-300 rounded-lg mb-8">
-            <div class="p-10 bg-gray-50">
-                <button class="inline-flex items-center justify-center h-12 px-6 font-bold rounded-lg border-2 transition-all duration-300" style="color: #164B64; border-color: #164B64; background-color: transparent; font-family: 'Montserrat', sans-serif;" onmouseover="this.style.backgroundColor='#164B64'; this.style.color='white'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#164B64'" onclick="void(0)">
+            <div class="p-10 bg-gray-50 flex justify-center">
+                <button class="sw-button sw-button-secondary">
                     Find address
                 </button>
             </div>
@@ -1307,8 +1307,8 @@
 
         <!-- Warning Button Example -->
         <div class="border border-gray-300 rounded-lg mb-8">
-            <div class="p-10 bg-gray-50">
-                <button class="inline-flex items-center justify-center h-12 px-6 text-white font-bold rounded-lg transition-colors duration-300" style="background-color: #E32434; font-family: 'Montserrat', sans-serif;" onmouseover="this.style.backgroundColor='#C9202E'" onmouseout="this.style.backgroundColor='#E32434'" onclick="void(0)">
+            <div class="p-10 bg-gray-50 flex justify-center">
+                <button class="sw-button sw-button-start">
                     Delete account
                 </button>
             </div>
@@ -1458,236 +1458,130 @@ function ComponentInstructions() {
     const componentData = {
         codeExamples: {
             component1: {
-                html: `<button class="sw-btn-primary">
-  Save and continue
+                html: `<button class="sw-button sw-button-primary">
+    Save and continue
 </button>`,
-                css: `.sw-btn-primary {
-    background-color: #164B64;
-    color: white;
+                css: `.sw-button {
     height: 46px;
-    padding: 0 24px;
+    padding: 0 2rem;
     border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s ease-in-out;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-.sw-btn-primary:hover {
-    background-color: #2E7799;
+.sw-button-primary {
+    background-color: #164B64;
+    color: white;
+}
+.sw-button-primary:hover {
+    opacity: 0.9;
 }`,
-                react: `function PrimaryButton({ children, onClick, disabled = false }) {
+                react: `function PrimaryButton({ children, onClick }) {
     return (
         <button 
-            className="sw-btn-primary"
+            className="sw-button sw-button-primary"
             onClick={onClick}
-            disabled={disabled}
         >
             {children}
         </button>
     );
-}
-
-// Usage
-<PrimaryButton onClick={() => console.log('Save clicked')}>
-    Save and continue
-</PrimaryButton>`,
-                tailwind: `<button class="
-    bg-[#164B64] hover:bg-[#2E7799] 
-    text-white font-bold 
-    h-12 px-6 rounded-lg 
-    font-['Montserrat'] 
-    transition-all duration-300 
-    inline-flex items-center justify-center
-    disabled:opacity-50 disabled:cursor-not-allowed
-">
+}`,
+                tailwind: `<button class="sw-button sw-button-primary">
     Save and continue
 </button>`
             },
             component2: {
-                html: `<button class="sw-btn-primary">
-  Save and continue
+                html: `<button class="sw-button sw-button-primary">
+    Save and continue
 </button>`,
-                css: `.sw-btn-primary {
+                css: `/* Same as Primary Button */
+.sw-button-primary {
     background-color: #164B64;
     color: white;
-    height: 46px;
-    padding: 0 24px;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sw-btn-primary:hover {
-    background-color: #2E7799;
 }`,
                 react: `function DefaultButton({ children, onClick }) {
     return (
         <button 
-            className="sw-btn-primary"
+            className="sw-button sw-button-primary"
             onClick={onClick}
         >
             {children}
         </button>
     );
 }`,
-                tailwind: `<button class="
-    bg-[#164B64] hover:bg-[#2E7799] 
-    text-white font-bold 
-    h-12 px-6 rounded-lg 
-    font-['Montserrat'] 
-    transition-all duration-300 
-    inline-flex items-center justify-center
-">
+                tailwind: `<button class="sw-button sw-button-primary">
     Save and continue
 </button>`
             },
             component3: {
-                html: `<a href="/start" class="sw-btn-start">
+                html: `<a href="/start" class="sw-button sw-button-start">
   Start now
   <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
   </svg>
 </a>`,
-                css: `.sw-btn-start {
+                css: `.sw-button-start {
     background-color: #E32434;
     color: white;
-    height: 46px;
-    padding: 0 24px;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
 }
-
-.sw-btn-start:hover {
+.sw-button-start:hover {
     background-color: #C9202E;
+    color: white;
 }`,
                 react: `function StartButton({ children, href, onClick }) {
     return (
         <a 
             href={href}
-            className="sw-btn-start"
+            className="sw-button sw-button-start"
             onClick={onClick}
         >
             {children}
-            <svg className="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
-            </svg>
+            {/* Arrow SVG icon */}
         </a>
     );
 }`,
-                tailwind: `<a href="/start" class="
-    bg-[#E32434] hover:bg-[#C9202E] 
-    text-white font-bold 
-    h-12 px-6 rounded-lg 
-    font-['Montserrat'] 
-    transition-all duration-300 
-    inline-flex items-center justify-center
-    no-underline
-">
-    Start now
-    <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"/>
-    </svg>
-</a>`
+                tailwind: `<a href="#" class="sw-button sw-button-start">Start now...</a>`
             },
             component4: {
-                html: `<button class="sw-btn-secondary">
-  Find address
+                html: `<button class="sw-button sw-button-secondary">
+    Find address
 </button>`,
-                css: `.sw-btn-secondary {
+                css: `.sw-button-secondary {
     background-color: transparent;
     color: #164B64;
-    height: 46px;
-    padding: 0 24px;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
     border: 2px solid #164B64;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
-
-.sw-btn-secondary:hover {
+.sw-button-secondary:hover {
     background-color: #164B64;
     color: white;
 }`,
-                react: `function SecondaryButton({ children, onClick, disabled = false }) {
+                react: `function SecondaryButton({ children, onClick }) {
     return (
         <button 
-            className="sw-btn-secondary"
+            className="sw-button sw-button-secondary"
             onClick={onClick}
-            disabled={disabled}
         >
             {children}
         </button>
     );
 }`,
-                tailwind: `<button class="
-    bg-transparent hover:bg-[#164B64] 
-    text-[#164B64] hover:text-white 
-    font-bold border-2 border-[#164B64] 
-    h-12 px-6 rounded-lg 
-    font-['Montserrat'] 
-    transition-all duration-300 
-    inline-flex items-center justify-center
-    disabled:opacity-50 disabled:cursor-not-allowed
-">
+                tailwind: `<button class="sw-button sw-button-secondary">
     Find address
 </button>`
             },
             component5: {
-                html: `<button class="sw-btn-warning">
-  Delete account
+                html: `<button class="sw-button sw-button-start">
+    Delete account
 </button>`,
-                css: `.sw-btn-warning {
-    background-color: #E32434;
-    color: white;
-    height: 46px;
-    padding: 0 24px;
-    border-radius: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sw-btn-warning:hover {
-    background-color: #C9202E;
-}`,
+                css: `/* Uses same style as Start Button */
+.sw-button-start { ... }`,
                 react: `function WarningButton({ children, onClick, disabled = false }) {
     return (
         <button 
-            className="sw-btn-warning"
+            className="sw-button sw-button-start"
             onClick={onClick}
             disabled={disabled}
         >
@@ -1695,15 +1589,7 @@ function ComponentInstructions() {
         </button>
     );
 }`,
-                tailwind: `<button class="
-    bg-[#E32434] hover:bg-[#C9202E] 
-    text-white font-bold 
-    h-12 px-6 rounded-lg 
-    font-['Montserrat'] 
-    transition-all duration-300 
-    inline-flex items-center justify-center
-    disabled:opacity-50 disabled:cursor-not-allowed
-">
+                tailwind: `<button class="sw-button sw-button-start">
     Delete account
 </button>`
             }
