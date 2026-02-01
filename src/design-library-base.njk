@@ -1,0 +1,228 @@
+{% extends "base.njk" %}
+{% set isSubdirectory = true %}
+
+{# 
+  MACRO: Navigation Item
+  - text: The link text
+  - url: Where the link goes
+  - id: A unique ID to match against 'activePage'
+#}
+{% macro navItem(text, url, id) %}
+    <li>
+        <a href="{{ url }}" 
+           class="block w-full text-left py-1.5 px-4 transition-all duration-300 border-l-3 font-normal sw-nav-item
+           {% if activePage == id %}
+               sw-nav-active font-medium
+           {% else %}
+               border-transparent hover:underline
+           {% endif %}">
+            {{ text }}
+        </a>
+    </li>
+{% endmacro %}
+
+{# 
+  MACRO: Navigation Group (Dropdown)
+  - title: The group header text (e.g. "Buttons")
+  - isActiveGroup: Boolean. If true, the dropdown will be open by default.
+#}
+{% macro navGroup(title, isActiveGroup=false) %}
+<details class="group mb-2" {% if isActiveGroup %}open{% endif %}>
+    <!-- The Clickable Header -->
+    <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header">
+        <h3 class="select-none">{{ title }}</h3>
+        
+    </summary>
+    
+    <!-- The Dropdown Content -->
+    <ul class="space-y-0 pl-1 mt-1">
+        {{ caller() }}
+    </ul>
+</details>
+{% endmacro %}
+
+
+{% block content %}
+<div class="min-h-screen bg-white px-52">
+    <div class="flex">
+        
+        <!-- SIDEBAR NAVIGATION -->
+        <nav class="w-60 h-screen sticky top-0 bg-white overflow-y-scroll scrollbar-hide">
+            <div class="py-6 pr-2">
+                
+                <!-- SW Design System Title -->
+                <div class="mb-4 px-3">
+                    <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">SW Component Library</p>
+                </div>
+
+                <!-- 1. Global Components -->
+                {% call navGroup('Global Components') %}
+                    {{ navItem('Cookie Banner', '../cookie-banner.html', 'cookie-banner') }}
+                    {{ navItem('Navigation Bar', '../navbar.html', 'navbar') }}
+                    {{ navItem('Navbar - Booking', '../navbar-booking.html', 'navbar-booking') }}
+                    {{ navItem('Footer', '../footer.html', 'footer') }}
+                    {{ navItem('Footer - Booking', '../footer-booking.html', 'footer-booking') }}
+                {% endcall %}
+
+                <!-- 2. Buttons (Open by default since it contains our main Button component) -->
+                {% call navGroup('Buttons', true) %}
+                    {{ navItem('Buttons', 'button.html', 'button') }} 
+                    {{ navItem('Booking Buttons', '../buttons-booking.html', 'buttons-booking') }}
+                    {{ navItem('Login Buttons', '../buttons-login.html', 'buttons-login') }}
+                    {{ navItem('Pagination Buttons', '../buttons-pagination.html', 'buttons-pagination') }}
+                    {{ navItem('Other Button Designs', '../buttons-other.html', 'buttons-other') }}
+                {% endcall %} 
+
+                <!-- 3. Input & Form Components -->
+                {% call navGroup('Input & Form Components') %}
+                    {{ navItem('Character Count', '../character-count.html', 'character-count') }}
+                    {{ navItem('Checkboxes', '../checkboxes.html', 'checkboxes') }}
+                    {{ navItem('Date Input', '../date-input.html', 'date-input') }}
+                    {{ navItem('File Upload', '../file-upload.html', 'file-upload') }}
+                    {{ navItem('Language Toggle', '../language-toggle.html', 'language-toggle') }}
+                    {{ navItem('Multiple choice select', '../multi-select.html', 'multi-select') }}
+                    {{ navItem('Password Input', '../password-input.html', 'password-input') }}
+                    {{ navItem('Radio', '../radio.html', 'radio') }}
+                    {{ navItem('Report bug / issue', '../report-issue.html', 'report-issue') }}
+                    {{ navItem('Search bar', '../search-bar.html', 'search-bar') }}
+                    {{ navItem('Select/dropdown', '../select.html', 'select') }}
+                    {{ navItem('Select/dropdown Interactive', '../select-interactive.html', 'select-interactive') }}
+                    {{ navItem('Textarea', '../textarea.html', 'textarea') }}
+                    {{ navItem('Text Input', 'text-input.html', 'text-input') }}
+                    {{ navItem('Toggle Switch', '../toggle-switch.html', 'toggle-switch') }}
+                {% endcall %}
+
+                <!-- 4. Navigation Components -->
+                {% call navGroup('Navigation Components') %}
+                    {{ navItem('Back Link', '../back-link.html', 'back-link') }}
+                    {{ navItem('Breadcrumbs', '../breadcrumbs.html', 'breadcrumbs') }}
+                    {{ navItem('Exit this page', '../exit-page.html', 'exit-page') }}
+                    {{ navItem('Guidance Steppers', '../steppers.html', 'steppers') }}
+                    {{ navItem('Service Navigation', '../service-nav.html', 'service-nav') }}
+                    {{ navItem('Skip Link', '../skip-link.html', 'skip-link') }}
+                    {{ navItem('Step Counter', '../step-counter.html', 'step-counter') }}
+                    {{ navItem('Tabs', '../tabs.html', 'tabs') }}
+                {% endcall %}
+
+                <!-- 5. Layout & Structure -->
+                {% call navGroup('Layout & Structure') %}
+                    {{ navItem('Accordion', '../accordion.html', 'accordion') }}
+                    {{ navItem('Details/show more', '../details.html', 'details') }}
+                    {{ navItem('Fieldset', '../fieldset.html', 'fieldset') }}
+                    {{ navItem('Panel/confirmation', '../panel.html', 'panel') }}
+                    {{ navItem('Table', '../table.html', 'table') }}
+                {% endcall %}
+
+                <!-- 6. Card Designs -->
+                {% call navGroup('Card Designs') %}
+                    {{ navItem('Card', 'card.html', 'card') }}
+                    {{ navItem('Card Layout No Button', '../card-no-btn.html', 'card-no-btn') }}
+                    {{ navItem('Card Layout With Buttons', '../card-with-btn.html', 'card-with-btn') }}
+                    {{ navItem('Card With Tagline', '../card-tagline.html', 'card-tagline') }}
+                    {{ navItem('News Card', '../card-news.html', 'card-news') }}
+                {% endcall %}
+
+                <!-- 7. Feedback & Messaging -->
+                {% call navGroup('Feedback & Messaging') %}
+                    {{ navItem('Confirmation Dialog', '../confirmation-dialog.html', 'confirmation-dialog') }}
+                    {{ navItem('Error Message', '../error-message.html', 'error-message') }}
+                    {{ navItem('Error Summary', '../error-summary.html', 'error-summary') }}
+                    {{ navItem('Inset Text', '../inset-text.html', 'inset-text') }}
+                    {{ navItem('Notice Box', '../notice-box.html', 'notice-box') }}
+                    {{ navItem('Notification Badges', '../notification-badges.html', 'notification-badges') }}
+                    {{ navItem('Success Box', '../success-box.html', 'success-box') }}
+                    {{ navItem('Tool Tip', '../tooltip.html', 'tooltip') }}
+                {% endcall %}
+
+                <!-- 8. Full Components -->
+                {% call navGroup('Full Components') %}
+                    {{ navItem('Calendar & Date Picker', '../calendar.html', 'calendar') }}
+                    {{ navItem('Copy Code', '../copy-code.html', 'copy-code') }}
+                    {{ navItem('FAQ', '../faq.html', 'faq') }}
+                    {{ navItem('Notification Block', '../notification-block.html', 'notification-block') }}
+                    {{ navItem('Time Scrollbar', '../time-scrollbar.html', 'time-scrollbar') }}
+                {% endcall %}
+
+                <!-- 9. SW Components -->
+                {% call navGroup('SW Components') %}
+                    {{ navItem('SW Branded Blocks', '../sw-blocks.html', 'sw-blocks') }}
+                {% endcall %}
+
+                <!-- 10. Mobile -->
+                {% call navGroup('Mobile') %}
+                    {{ navItem('Navigation bar - Mobile', '../navbar-mobile.html', 'navbar-mobile') }}
+                    {{ navItem('Footer - Mobile', '../footer-mobile.html', 'footer-mobile') }}
+                {% endcall %}
+
+                <!-- 11. Patterns -->
+                {% call navGroup('Patterns') %}
+                    {{ navItem('Sign Up Pattern', '../pattern-signup.html', 'pattern-signup') }}
+                    {{ navItem('Login Pattern', '../pattern-login.html', 'pattern-login') }}
+                    {{ navItem('Payment Details', '../pattern-payment.html', 'pattern-payment') }}
+                {% endcall %}
+
+                <!-- 12. Interactive -->
+                {% call navGroup('Interactive') %}
+                    {{ navItem('Image Carousel', '../carousel.html', 'carousel') }}
+                {% endcall %}
+
+                 <!-- 13. Pages -->
+                 {% call navGroup('Pages') %}
+                    {{ navItem('Page Not Found', '../404.html', '404') }}
+                    {{ navItem('Service Unavailable', '../unavailable.html', 'unavailable') }}
+                {% endcall %}
+
+            </div>
+        </nav>
+        
+        <!-- Component Content Area -->
+        <main class="flex-1 bg-white min-w-0 px-30">
+            {% block componentContent %}{% endblock %}
+        </main>
+    </div>
+</div>
+
+<!-- CSS for Scrollbar Hiding and Sport Wales Navigation -->
+<style>
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+/* Sport Wales Navigation Styling */
+.sw-nav-group-header {
+    color: #6b7280;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+}
+
+.sw-nav-group-header:hover {
+    color: #164B64;
+}
+
+.sw-nav-item {
+    font-size: 11px;
+    color: #4b5563;
+}
+
+.sw-nav-item:hover {
+    color: #164B64;
+}
+
+/* Sport Wales Navigation Active State */
+.sw-nav-active {
+    border-left-color: #164B64 !important;
+    border-left-width: 3px !important;
+    color: #164B64 !important;
+    font-weight: 500;
+    background-color: transparent !important;
+}
+</style>
+
+{% endblock %}

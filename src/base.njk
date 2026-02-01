@@ -19,8 +19,8 @@
       type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet"/>
     <!-- own global stylesheet -->
-    <link href="css/styles.css" rel="stylesheet"/>
-    <link href="css/pres-animation.css" rel="stylesheet"/>
+    <link href="{% if isSubdirectory %}../{% endif %}css/styles.css" rel="stylesheet"/>
+    <link href="{% if isSubdirectory %}../{% endif %}css/pres-animation.css" rel="stylesheet"/>
     <title>{{ pageTitle }}</title>
   </head>
   <body>
@@ -29,7 +29,5 @@
     {% include 'includes/footer.njk' %}
     {% block extrajs %}{% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/pres-animation.js"></script>
   </body>
 </html>

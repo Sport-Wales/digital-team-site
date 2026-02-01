@@ -29,14 +29,19 @@ const pages = [
     new Page('support', 'Support'),
 	new Page('projects', 'Projects'),
     new Page('website-roadmap', 'Website Roadmap'),
+    new Page('online-project-request-form', 'Online Project Request Form'),
+
     new Page('blogs-by-steffan-berrow', 'Blogs by Steffan Berrow'),
     new Page('blogs-by-phil-stephens', 'Blogs by Phil Stephens'),
     new Page('blogs-by-paul-batcup', 'Blogs by Paul Batcup'),
     new Page('blogs-by-tara-rhoseyn', 'Blogs by Tara Rhoseyn'),
     new Page('blogs-by-mathew-james', 'Blogs by Mathew James'),
     new Page('project-request-form', 'Project Request Form'),
-    new Page('online-project-request-form', 'Online Project Request Form'),
     new Page('blogs-by-anselm-powell', 'Blogs by Anselm Powell'),
+
+    new Page('design-library/button', 'Button - SW Design Library'),
+    new Page('design-library/card', 'Card - SW Design Library'),
+    new Page('design-library/text-input', 'Text Input - SW Design Library'),
 ]
 
 
