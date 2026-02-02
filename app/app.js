@@ -43,7 +43,7 @@ const pages = [
     new Page('design-library/card', 'Card - SW Design Library'),
     new Page('design-library/card-no-btn', 'Card No Button - SW Design Library'),
     new Page('design-library/card-with-btn', 'Card With Button - SW Design Library'),
-    new Page('design-library/text-input', 'Text Input - SW Design Library'),
+    
 ]
 
 

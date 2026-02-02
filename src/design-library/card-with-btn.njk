@@ -9,36 +9,42 @@
 
     <!-- Description -->
     <p class="text-gray-700 leading-relaxed mb-8">
-        Use this card layout for featured content that requires a clear call-to-action button alongside an image.
+        This featured card uses a layered approach where a slanted image overlays a solid color card. 
+        <strong>Note:</strong> This design uses sharp corners (no border-radius) and the image element is positioned on top of the card base.
     </p>
 
     <!-- Primary Example Block -->
-    <div class="border border-gray-300 rounded-lg mb-8">
+    <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
         <!-- Live Example -->
-        <div class="p-10 bg-gray-50 flex justify-center">
+        <div class="p-20 bg-gray-100 flex justify-center items-center">
             
-            <!-- Live Component: Blue Card with Button -->
-            <div class="relative w-full max-w-2xl min-h-[350px]">
+            <!-- Component Container (Relative to allow absolute image overlay) -->
+            <div class="relative w-full max-w-2xl py-10">
                 
-                <!-- Card Content Logic -->
-                <div class="sw-card-blue relative w-80 z-10 mt-8 shadow-lg flex flex-col justify-between">
-                    <div>
-                        <h2 class="sw-heading-secondary text-white mb-4">Grants & funding</h2>
-                        <p class="text-white text-base leading-relaxed mb-4">
+                <!-- 1. The Card Base (The Teal Box) -->
+                <div class="sw-bg-green w-[500px] min-h-[420px] p-12 flex flex-col justify-center relative z-0">
+                    <div class="max-w-[280px]">
+                        <h2 class="text-5xl font-extrabold text-white mb-8 leading-tight tracking-tight" style="font-family: 'Objektiv MK1', sans-serif;">
+                            Grants & <br/>funding
+                        </h2>
+                        <p class="text-white text-lg font-medium leading-relaxed mb-8" style="font-family: 'Montserrat', sans-serif;">
                             We distribute funding to community clubs, volunteers, and athletes. Our grants team can support you with information.
                         </p>
+                        
+                        <!-- Button CTA -->
+                        <button class="sw-button sw-button-start rounded-none h-12 px-8 uppercase tracking-widest text-sm font-bold border-none">
+                            Find out more
+                        </button>
                     </div>
-                    <!-- Button -->
-                    <button class="sw-button sw-button-start self-start mt-4">
-                        Button CTA
-                    </button>
                 </div>
 
-                <!-- Angled Image Container -->
-                <div class="absolute top-0 right-0 w-64 h-80 z-20 sw-angled-image-container overflow-hidden">
-                    <div class="w-full h-full bg-gray-300 relative">
-                        <img src="../img/card-layout-no-button-graphic.svg" alt="Card Graphic" class="object-cover w-full h-full">
-                        <div class="absolute inset-0 bg-red-500 opacity-60 mix-blend-multiply"></div>
+                <!-- 2. The Slanted Image Overlay (Sits ON TOP of the card) -->
+                <div class="absolute top-0 -right-4 w-[380px] h-full z-10 sw-image-overlay-slant shadow-2xl">
+                    <div class="relative w-full h-full">
+                        <!-- Image -->
+                        <img src="../img/card-layout-no-button-graphic.svg" alt="Rugby Players" class="object-cover w-full h-full">
+                        <!-- Red Brand Overlay (Multiply) -->
+                        <div class="absolute inset-0 bg-[#E32434] opacity-60 mix-blend-multiply"></div>
                     </div>
                 </div>
 
@@ -53,6 +59,16 @@
     </div>
 
 </div>
+
+<style>
+    /* 
+       Specific Slant for the overlay image.
+       Points: Top-Left(35%), Top-Right(100%), Bottom-Right(75%), Bottom-Left(10%) 
+    */
+    .sw-image-overlay-slant {
+        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    }
+</style>
 
 <!-- React Script -->
 <script type="text/babel">
@@ -106,39 +122,57 @@ function CodeTabsComponent({ codeExamples, tabId }) {
 const componentData = {
     codeExamples: {
         component1: {
-            html: `<div class="relative w-full max-w-2xl min-h-[350px]">
-    <div class="sw-card-blue relative w-80 z-10 mt-8 shadow-lg flex flex-col justify-between">
-        <div>
-            <h2 class="sw-heading-secondary text-white mb-4">Title</h2>
-            <p class="text-white mb-4">Content...</p>
-        </div>
-        <button class="sw-button sw-button-start self-start mt-4">
-            Button CTA
-        </button>
+            html: `<!-- Featured Layered Card -->
+<div class="relative w-full max-w-2xl py-10">
+    <!-- Teal Background Card -->
+    <div class="sw-bg-green w-[500px] min-h-[420px] p-12 relative z-0">
+        <h2 class="sw-heading-xl text-white">Grants & funding</h2>
+        <p class="text-white">...</p>
+        <button class="sw-button-start rounded-none">Find out more</button>
     </div>
-    <!-- Angled Image Container -->
+
+    <!-- Slanted Image Overlay (Z-index 10) -->
+    <div class="absolute top-0 -right-4 w-[380px] h-full z-10 sw-image-overlay-slant">
+        <img src="..." class="object-cover h-full">
+        <div class="sw-red-multiply-overlay"></div>
+    </div>
 </div>`,
-            css: `.sw-card-blue {
-    background-color: var(--color-sw-blue);
-    color: white;
-    border-radius: 8px;
-    padding: 1.5rem;
+            css: `.sw-bg-green { background-color: #299D91; }
+.sw-image-overlay-slant {
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
-.sw-button-start {
-    background-color: var(--color-sw-red);
-    color: white;
+.sw-red-multiply-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #E32434;
+    mix-blend-mode: multiply;
+    opacity: 0.6;
 }`,
-            react: `function CardWithBtn() {
-    return (
-        <div className="relative...">
-            <div className="sw-card-blue...">
-                ...
-                <button className="sw-button sw-button-start">CTA</button>
-            </div>
+            react: `const FeaturedCard = () => (
+    <div className="relative w-full max-w-2xl">
+        {/* Base Layer */}
+        <div className="bg-[#299D91] w-[500px] p-12 z-0">
+            <h2 className="text-5xl font-extrabold text-white uppercase">Grants & Funding</h2>
+            <button className="bg-[#E32434] text-white px-8 py-3 rounded-none">Action</button>
         </div>
-    );
-}`,
-            tailwind: `<!-- Check sw-card-blue definition -->`
+        {/* Top Layer */}
+        <div className="absolute top-0 -right-4 w-[380px] h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
+            <img src="/rugby.jpg" className="object-cover h-full" />
+            <div className="absolute inset-0 bg-[#E32434] mix-blend-multiply opacity-60" />
+        </div>
+    </div>
+);`,
+            tailwind: `<!-- Layered Overlay Card -->
+<div class="relative w-full max-w-2xl">
+    <div class="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0">
+        <h2 class="text-5xl font-black text-white leading-tight">GRANTS & FUNDING</h2>
+        <button class="mt-8 bg-[#E32434] text-white px-8 py-3 font-bold">FIND OUT MORE</button>
+    </div>
+    <div class="absolute top-0 -right-4 w-[380px] h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)] overflow-hidden">
+        <img src="..." class="object-cover h-full w-full" />
+        <div class="absolute inset-0 bg-[#E32434] mix-blend-multiply opacity-60"></div>
+    </div>
+</div>`
         }
     }
 };
