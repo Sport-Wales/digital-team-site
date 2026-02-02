@@ -7,6 +7,12 @@
     <!-- Page Title -->
     <h1 class="text-4xl font-bold text-gray-900 mb-8">Card - With Button</h1>
 
+    <!-- Description -->
+    <p class="text-gray-700 leading-relaxed mb-8">
+        This featured card uses a layered approach where a slanted image overlays a solid color card. 
+        <strong>Note:</strong> This design uses sharp corners (no border-radius) and the image element is positioned on top of the card base.
+    </p>
+
     <!-- Primary Example Block -->
     <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
         <!-- Live Example -->
@@ -91,92 +97,139 @@
     }
 </style>
 
+<!-- Dependencies -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
 <script type="text/babel">
 {% raw %}
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function CodeTabsComponent({ codeExamples, tabId }) {
     const [codeType, setCodeType] = useState('html');
+
     const getLanguageClass = (type) => {
-        const languageMap = { html: 'language-html', css: 'language-css', react: 'language-jsx', tailwind: 'language-html' };
+        const languageMap = {
+            html: 'language-html',
+            css: 'language-css', 
+            react: 'language-jsx',
+            tailwind: 'language-html'
+        };
         return languageMap[type] || 'language-html';
     };
 
-    React.useEffect(() => {
-        if (window.hljs) {
-            setTimeout(() => {
-                const codeBlock = document.querySelector(`#${tabId}-code-block`);
-                if (codeBlock) {
-                    codeBlock.removeAttribute('data-highlighted');
-                    codeBlock.className = getLanguageClass(codeType);
-                    window.hljs.highlightElement(codeBlock);
-                }
-            }, 50);
-        }
+    useEffect(() => {
+        const highlightCode = () => {
+            if (window.hljs) {
+                setTimeout(() => {
+                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
+                    if (codeBlock) {
+                        codeBlock.removeAttribute('data-highlighted');
+                        codeBlock.className = getLanguageClass(codeType);
+                        window.hljs.highlightElement(codeBlock);
+                    }
+                }, 50);
+            } else {
+                setTimeout(highlightCode, 100);
+            }
+        };
+        highlightCode();
     }, [codeType, tabId]);
 
     return (
         <div>
             <div className="flex" role="tablist">
                 {Object.keys(codeExamples).map((type) => (
-                    <button key={type} onClick={() => setCodeType(type)} className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${codeType === type ? 'border-blue-600 bg-white text-blue-600' : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                    <button
+                        key={type}
+                        onClick={() => setCodeType(type)}
+                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
+                            codeType === type
+                                ? 'border-blue-600 bg-white text-blue-600'
+                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        }`}
+                    >
                         {type.toUpperCase()}
                     </button>
                 ))}
             </div>
-            <div className="bg-white relative">
-                <button onClick={() => { navigator.clipboard.writeText(codeExamples[codeType]); const button = event.target; button.textContent = 'Copied!'; setTimeout(() => { button.textContent = 'Copy code'; }, 2000); }} className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 rounded">Copy code</button>
-                <pre className="p-4 bg-gray-900 text-gray-100 text-sm overflow-x-auto"><code id={`${tabId}-code-block`}>{codeExamples[codeType]}</code></pre>
+            <div className="bg-white">
+                <div className="relative">
+                    <button
+                        onClick={() => {
+                            navigator.clipboard.writeText(codeExamples[codeType]);
+                            const button = event.currentTarget;
+                            const originalText = button.textContent;
+                            button.textContent = 'Copied!';
+                            setTimeout(() => { button.textContent = originalText; }, 2000);
+                        }}
+                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
+                    >
+                        Copy code
+                    </button>
+                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
+                        <code id={`${tabId}-code-block`} className={getLanguageClass(codeType)}>
+                            {codeExamples[codeType]}
+                        </code>
+                    </pre>
+                </div>
             </div>
         </div>
     );
 }
 
-const componentData = {
-    codeExamples: {
-        component1: {
-            html: `<!-- Featured Card -->
-<div class="relative w-full max-w-2xl">
+function ComponentInstructions() {
+    return {
+        codeExamples: {
+            component1: {
+                html: `<div class="relative w-full max-w-2xl py-10">
     <div class="sw-bg-green w-[500px] min-h-[420px] p-12 relative z-0">
         <h2 class="text-5xl font-extrabold text-white mb-8 uppercase">Grants & funding</h2>
-        <p class="text-white text-lg mb-8">Description text goes here...</p>
-        <button class="sw-button sw-button-start h-12 px-8 uppercase tracking-widest text-sm font-bold">Find out more</button>
+        <p class="text-white text-lg mb-8">We distribute funding...</p>
+        <button class="sw-button sw-button-start h-12 px-8 uppercase tracking-widest text-sm font-bold border-none">Find out more</button>
     </div>
-    <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant">
-        <img src="path/to/image.jpg" class="object-cover w-full h-full">
+    <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant shadow-2xl">
+        <img src="..." class="object-cover w-full h-full">
     </div>
 </div>`,
-            css: `.sw-bg-green { background-color: #299D91; }
+                css: `.sw-bg-green { background-color: #299D91; }
 .sw-image-overlay-slant {
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }`,
-            react: `function FeaturedCard() {
-    return (
-        <div className="relative w-full max-w-2xl">
-            <div className="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0">
-                <h2 className="text-5xl font-black text-white mb-8 uppercase">Grants & Funding</h2>
-                <button className="bg-[#E32434] text-white h-12 px-8 font-bold uppercase">Find out more</button>
-            </div>
-            <div className="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
-                <img src="/path/to/img.jpg" className="object-cover h-full" />
-            </div>
+                react: `const FeaturedCard = () => (
+    <div className="relative w-full max-w-2xl py-10">
+        <div className="bg-[#299D91] w-[500px] min-h-[420px] p-12 relative z-0">
+            <h2 className="text-5xl font-black text-white uppercase mb-8">Grants & Funding</h2>
+            <button className="bg-[#E32434] text-white h-12 px-8 font-bold uppercase text-sm tracking-widest">Find out more</button>
         </div>
-    );
-}`,
-            tailwind: `<div class="relative w-full max-w-2xl">
-    <div class="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0">
-        <h2 class="text-5xl font-black text-white mb-8 uppercase leading-tight">GRANTS & FUNDING</h2>
-        <button class="bg-[#E32434] text-white h-12 px-8 font-bold uppercase text-sm tracking-widest">FIND OUT MORE</button>
+        <div className="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
+            <img src="..." className="object-cover h-full" />
+        </div>
+    </div>
+);`,
+                tailwind: `<div class="relative w-full max-w-2xl">
+    <div class="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0 rounded-none">
+        <h2 class="text-5xl font-black text-white uppercase leading-tight">GRANTS & FUNDING</h2>
+        <button class="mt-8 bg-[#E32434] text-white h-12 px-8 font-bold uppercase text-sm">Find out more</button>
     </div>
     <div class="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
         <img src="..." class="object-cover h-full" />
     </div>
 </div>`
+            }
         }
-    }
-};
+    };
+}
 
-ReactDOM.render(<CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />, document.getElementById('component1-code-tabs'));
+const componentData = ComponentInstructions();
+
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
+    document.getElementById('component1-code-tabs')
+);
 {% endraw %}
 </script>
 {% endblock %}
