@@ -1,0 +1,146 @@
+{% extends "design-library-base.njk" %}
+{% set activePage = 'card-no-btn' %}
+
+{% block componentContent %}
+<div class="max-w-4xl mx-auto px-6 py-8">
+    
+    <!-- Page Title -->
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Card - No Button</h1>
+
+    <!-- Description -->
+    <p class="text-gray-700 leading-relaxed mb-8">
+        Use this card layout for featured content that includes an image but does not require a call-to-action button.
+    </p>
+
+    <!-- Primary Example Block -->
+    <div class="border border-gray-300 rounded-lg mb-8">
+        <!-- Live Example -->
+        <div class="p-10 bg-gray-50 flex justify-center">
+            
+            <!-- Live Component: Teal Card with Angled Image -->
+            <div class="relative w-full max-w-2xl min-h-[350px]">
+                
+                <!-- Card Content Logic -->
+                <div class="sw-card-teal relative w-80 z-10 mt-8 shadow-lg">
+                    <h2 class="sw-heading-secondary text-white mb-4">Grants & funding</h2>
+                    <p class="text-white text-base leading-relaxed mb-4">
+                        We distribute funding to community clubs, volunteers, and athletes. Our grants team can support you with information.
+                    </p>
+                </div>
+
+                <!-- Angled Image Container -->
+                <div class="absolute top-0 right-0 w-64 h-80 z-20 sw-angled-image-container overflow-hidden">
+                    <!-- Image Placeholder -->
+                    <div class="w-full h-full bg-gray-300 relative">
+                        <img src="../img/card-layout-no-button-graphic.svg" alt="Card Graphic" class="object-cover w-full h-full">
+                        <div class="absolute inset-0 bg-red-500 opacity-60 mix-blend-multiply"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+        <!-- React Code Tabs -->
+        <div class="border-t border-gray-200">
+            <div id="component1-code-tabs"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- React Script -->
+<script type="text/babel">
+{% raw %}
+function CodeTabsComponent({ codeExamples, tabId }) {
+    const [activeTab, setActiveTab] = React.useState('html');
+    const [copied, setCopied] = React.useState(false);
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(codeExamples[activeTab]);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    return (
+        <div className="flex flex-col h-full font-mono text-sm leading-normal">
+            {/* Tab Header */}
+            <div className="flex border-b border-gray-200 bg-gray-50">
+                {['html', 'css', 'react', 'tailwind'].map((tab) => (
+                    <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`px-4 py-2 font-medium text-gray-700 focus:outline-none ${
+                            activeTab === tab 
+                                ? 'bg-white border-t-2 border-l border-r border-gray-200 border-t-blue-600 -mb-px rounded-t' 
+                                : 'hover:bg-gray-100'
+                        }`}
+                    >
+                        {tab.toUpperCase()}
+                    </button>
+                ))}
+                <div className="flex-grow"></div>
+                <button 
+                    onClick={handleCopy}
+                    className="flex items-center space-x-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                    <span className="text-xs font-semibold uppercase">{copied ? 'Copied!' : 'Copy Code'}</span>
+                </button>
+            </div>
+
+            {/* Code Content */}
+            <div className="flex-1 bg-gray-50 p-4 overflow-auto">
+                <pre className="m-0 whitespace-pre-wrap text-gray-800 font-mono text-xs">
+                    <code>{codeExamples[activeTab]}</code>
+                </pre>
+            </div>
+        </div>
+    );
+}
+
+const componentData = {
+    codeExamples: {
+        component1: {
+            html: `<div class="relative w-full max-w-2xl min-h-[350px]">
+    <div class="sw-card-teal relative w-80 z-10 mt-8 shadow-lg">
+        <h2 class="sw-heading-secondary text-white mb-4">Grants & funding</h2>
+        <p class="text-white text-base leading-relaxed mb-4">
+            We distribute funding...
+        </p>
+    </div>
+    <div class="absolute top-0 right-0 w-64 h-80 z-20 sw-angled-image-container overflow-hidden">
+        <img src="..." class="object-cover w-full h-full"> 
+    </div>
+</div>`,
+            css: `.sw-card-teal {
+    background-color: var(--color-sw-green);
+    color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+.sw-angled-image-container {
+    clip-path: polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%);
+}`,
+            react: `function CardNoBtn() {
+    return (
+        <div className="relative w-full max-w-2xl min-h-[350px]">
+            <div className="sw-card-teal relative w-80 z-10 mt-8 shadow-lg">
+                <h2 className="sw-heading-secondary text-white mb-4">Title</h2>
+                <p className="text-white">Content...</p>
+            </div>
+             {/* Image Container Logic */}
+        </div>
+    );
+}`,
+            tailwind: `<!-- Check sw-card-teal definition for values -->`
+        }
+    }
+};
+
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
+    document.getElementById('component1-code-tabs')
+);
+{% endraw %}
+</script>
+{% endblock %}

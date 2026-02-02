@@ -284,3 +284,32 @@ h1, h2, h3, h4, h5, h6 {
     right: 1rem;
     z-index: 50;
 }
+
+/* Featured Card Variants */
+.sw-card-teal {
+    background-color: var(--color-sw-green);
+    color: white;
+    border-radius: var(--border-radius-button); /* Inherit rounded corners from design system */
+    padding: 1.5rem; /* Standard Padding */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.sw-card-blue {
+    background-color: var(--color-sw-blue);
+    color: white;
+    border-radius: var(--border-radius-button);
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Image Layout Utilities */
+.sw-angled-image-container {
+    clip-path: polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%);
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+@media screen and (max-width: 640px) {
+    .sw-angled-image-container {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Rectangular on mobile ? Or adjusted angle */
+    }
+}
