@@ -708,7 +708,7 @@
         <a href="card-no-btn.html" 
            class="block w-full text-left py-1.5 px-4 transition-all duration-300 border-l-3 font-normal sw-nav-item
            
-               border-transparent hover:underline
+               sw-nav-active font-medium
            ">
             Card - No Button
         </a>
@@ -719,7 +719,7 @@
         <a href="card-with-btn.html" 
            class="block w-full text-left py-1.5 px-4 transition-all duration-300 border-l-3 font-normal sw-nav-item
            
-               sw-nav-active font-medium
+               border-transparent hover:underline
            ">
             Card - With Button
         </a>
@@ -1100,49 +1100,32 @@
 <div class="max-w-4xl mx-auto px-6 py-8">
     
     <!-- Page Title -->
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Card - With Button</h1>
-
-    <!-- Description -->
-    <p class="text-gray-700 leading-relaxed mb-8">
-        This featured card uses a layered approach where a slanted image overlays a solid color card. 
-        <strong>Note:</strong> This design uses sharp corners (no border-radius) and the image element is positioned on top of the card base.
-    </p>
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Card - No Button</h1>
 
     <!-- Primary Example Block -->
     <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
         <!-- Live Example -->
         <div class="p-20 bg-gray-100 flex justify-center items-center">
             
-            <!-- Component Container (Relative to allow absolute image overlay) -->
             <div class="relative w-full max-w-2xl py-10">
-                
-                <!-- 1. The Card Base (The Teal Box) -->
-                <div class="sw-bg-green w-[500px] min-h-[420px] p-12 flex flex-col justify-center relative z-0">
+                <!-- 1. The Card Base -->
+                <div class="sw-bg-green w-[500px] min-h-[420px] p-12 flex flex-col justify-center relative z-0 shadow-lg">
                     <div class="max-w-[280px]">
-                        <h2 class="text-5xl font-extrabold text-white mb-8 leading-tight tracking-tight" style="font-family: 'Objektiv MK1', sans-serif;">
+                        <h2 class="text-5xl font-extrabold text-white mb-8 leading-tight tracking-tight uppercase" style="font-family: 'Objektiv MK1', sans-serif;">
                             Grants & <br/>funding
                         </h2>
-                        <p class="text-white text-lg font-medium leading-relaxed mb-8" style="font-family: 'Montserrat', sans-serif;">
+                        <p class="text-white text-lg font-medium leading-relaxed" style="font-family: 'Montserrat', sans-serif;">
                             We distribute funding to community clubs, volunteers, and athletes. Our grants team can support you with information.
                         </p>
-                        
-                        <!-- Button CTA -->
-                        <button class="sw-button sw-button-start h-12 px-8 uppercase tracking-widest text-sm font-bold border-none">
-                            Find out more
-                        </button>
                     </div>
                 </div>
 
-                <!-- 2. The Slanted Image Overlay (Sits ON TOP of the card) -->
+                <!-- 2. The Slanted Image Overlay -->
                 <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant shadow-2xl">
                     <div class="relative w-full h-full">
-                        <!-- Image -->
                         <img src="../img/card-layout-no-button-graphic.svg" alt="Rugby Players" class="object-cover w-full h-full">
-                       
-                        
                     </div>
                 </div>
-
             </div>
 
         </div>
@@ -1153,62 +1136,67 @@
         </div>
     </div>
 
+    <!-- Usage Sections -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">When to use this component</h2>
+        <p class="text-gray-700 leading-relaxed">
+            Use this variant for featured content blocks that are informative but do not require an immediate user action via a button. It is ideal for showcasing success stories, news highlights, or about us sections.
+        </p>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Design Rules</h2>
+        <ul class="list-disc ml-6 space-y-2 text-gray-700 leading-relaxed mb-6">
+            <li><strong>Sharp Corners:</strong> Maintain zero border-radius on all card elements.</li>
+            <li><strong>Z-Index:</strong> The image must sit on top of the card at <code>z-index: 10</code>.</li>
+            <li><strong>Slant Consistency:</strong> Always use the brand-approved 25% to 75% polygon slant.</li>
+        </ul>
+    </section>
+
 </div>
 
 <style>
-    /* 
-       Specific Slant for the overlay image.
-       Points: Top-Left(35%), Top-Right(100%), Bottom-Right(75%), Bottom-Left(10%) 
-    */
     .sw-image-overlay-slant {
         clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
     }
 </style>
 
-<!-- React Script -->
 <script type="text/babel">
 
-function CodeTabsComponent({ codeExamples, tabId }) {
-    const [activeTab, setActiveTab] = React.useState('html');
-    const [copied, setCopied] = React.useState(false);
+const { useState } = React;
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(codeExamples[activeTab]);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+function CodeTabsComponent({ codeExamples, tabId }) {
+    const [codeType, setCodeType] = useState('html');
+    const getLanguageClass = (type) => {
+        const languageMap = { html: 'language-html', css: 'language-css', react: 'language-jsx', tailwind: 'language-html' };
+        return languageMap[type] || 'language-html';
     };
 
+    React.useEffect(() => {
+        if (window.hljs) {
+            setTimeout(() => {
+                const codeBlock = document.querySelector(`#${tabId}-code-block`);
+                if (codeBlock) {
+                    codeBlock.removeAttribute('data-highlighted');
+                    codeBlock.className = getLanguageClass(codeType);
+                    window.hljs.highlightElement(codeBlock);
+                }
+            }, 50);
+        }
+    }, [codeType, tabId]);
+
     return (
-        <div className="flex flex-col h-full font-mono text-sm leading-normal">
-            {/* Tab Header */}
-            <div className="flex border-b border-gray-200 bg-gray-50">
-                {['html', 'css', 'react', 'tailwind'].map((tab) => (
-                    <button
-                        key={tab}
-                        onClick={() => setActiveTab(tab)}
-                        className={`px-4 py-2 font-medium text-gray-700 focus:outline-none ${
-                            activeTab === tab 
-                                ? 'bg-white border-t-2 border-l border-r border-gray-200 border-t-blue-600 -mb-px rounded-t' 
-                                : 'hover:bg-gray-100'
-                        }`}
-                    >
-                        {tab.toUpperCase()}
+        <div>
+            <div className="flex" role="tablist">
+                {Object.keys(codeExamples).map((type) => (
+                    <button key={type} onClick={() => setCodeType(type)} className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${codeType === type ? 'border-blue-600 bg-white text-blue-600' : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                        {type.toUpperCase()}
                     </button>
                 ))}
-                <div className="flex-grow"></div>
-                <button 
-                    onClick={handleCopy}
-                    className="flex items-center space-x-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                    <span className="text-xs font-semibold uppercase">{copied ? 'Copied!' : 'Copy Code'}</span>
-                </button>
             </div>
-
-            {/* Code Content */}
-            <div className="flex-1 bg-gray-50 p-4 overflow-auto">
-                <pre className="m-0 whitespace-pre-wrap text-gray-800 font-mono text-xs">
-                    <code>{codeExamples[activeTab]}</code>
-                </pre>
+            <div className="bg-white relative">
+                <button onClick={() => { navigator.clipboard.writeText(codeExamples[codeType]); const button = event.target; button.textContent = 'Copied!'; setTimeout(() => { button.textContent = 'Copy code'; }, 2000); }} className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 rounded">Copy code</button>
+                <pre className="p-4 bg-gray-900 text-gray-100 text-sm overflow-x-auto"><code id={`${tabId}-code-block`}>{codeExamples[codeType]}</code></pre>
             </div>
         </div>
     );
@@ -1217,65 +1205,42 @@ function CodeTabsComponent({ codeExamples, tabId }) {
 const componentData = {
     codeExamples: {
         component1: {
-            html: `<!-- Featured Layered Card -->
-<div class="relative w-full max-w-2xl py-10">
-    <!-- Teal Background Card -->
+            html: `<div class="relative w-full max-w-2xl py-10">
     <div class="sw-bg-green w-[500px] min-h-[420px] p-12 relative z-0">
-        <h2 class="sw-heading-xl text-white">Grants & funding</h2>
-        <p class="text-white">...</p>
-        <button class="sw-button-start">Find out more</button>
+        <h2 class="text-5xl font-extrabold text-white mb-8 uppercase">Grants & funding</h2>
+        <p class="text-white text-lg font-medium">Content goes here...</p>
     </div>
-
-    <!-- Slanted Image Overlay (Z-index 10) -->
-    <div class="absolute top-0 -right-4 w-[380px] h-full z-10 sw-image-overlay-slant">
-        <img src="..." class="object-cover h-full">
-        <div class="sw-red-multiply-overlay"></div>
+    <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant">
+        <img src="..." class="object-cover w-full h-full">
     </div>
 </div>`,
             css: `.sw-bg-green { background-color: #299D91; }
 .sw-image-overlay-slant {
     clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-}
-.sw-red-multiply-overlay {
-    position: absolute;
-    inset: 0;
-    background-color: #E32434;
-    mix-blend-mode: multiply;
-    opacity: 0.6;
 }`,
             react: `const FeaturedCard = () => (
     <div className="relative w-full max-w-2xl">
-        {/* Base Layer */}
-        <div className="bg-[#299D91] w-[500px] p-12 z-0">
-            <h2 className="text-5xl font-extrabold text-white uppercase">Grants & Funding</h2>
-            <button className="bg-[#E32434] text-white px-8 py-3 ">Action</button>
+        <div className="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0">
+            <h2 className="text-5xl font-black text-white uppercase">Grants & Funding</h2>
         </div>
-        {/* Top Layer */}
-        <div className="absolute top-0 -right-4 w-[380px] h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
-            <img src="/rugby.jpg" className="object-cover h-full" />
-            <div className="absolute inset-0 bg-[#E32434]  opacity-60" />
+        <div className="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
+            <img src="/path/to/img.jpg" className="object-cover h-full" />
         </div>
     </div>
 );`,
-            tailwind: `<!-- Layered Overlay Card -->
-<div class="relative w-full max-w-2xl">
-    <div class="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0">
-        <h2 class="text-5xl font-black text-white leading-tight">GRANTS & FUNDING</h2>
-        <button class="mt-8 bg-[#E32434] text-white px-8 py-3 font-bold">FIND OUT MORE</button>
+            tailwind: `<div class="relative w-full max-w-2xl">
+    <div class="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0 rounded-none">
+        <h2 class="text-5xl font-black text-white uppercase leading-tight">GRANTS & FUNDING</h2>
     </div>
-    <div class="absolute top-0 -right-4 w-[380px] h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)] overflow-hidden">
-        <img src="..." class="object-cover h-full w-full" />
-        <div class="absolute inset-0 bg-[#E32434]  opacity-60"></div>
+    <div class="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
+        <img src="..." class="object-cover h-full" />
     </div>
 </div>`
         }
     }
 };
 
-ReactDOM.render(
-    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
-    document.getElementById('component1-code-tabs')
-);
+ReactDOM.render(<CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />, document.getElementById('component1-code-tabs'));
 
 </script>
 
