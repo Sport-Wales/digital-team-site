@@ -21,7 +21,7 @@
     <!-- own global stylesheet -->
     <link href="../css/styles.css" rel="stylesheet"/>
     <link href="../css/pres-animation.css" rel="stylesheet"/>
-    <title>Card - SW Design Library | Digital and Service Design Team</title>
+    <title>Navigation Bar - SW Design Library | Digital and Service Design Team</title>
   </head>
   <body>
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -205,7 +205,7 @@
         <a href="navbar.html" 
            class="block w-full text-left py-1.5 px-4 transition-all duration-300 border-l-3 font-normal sw-nav-item
            
-               border-transparent hover:underline
+               sw-nav-active font-medium
            ">
             Navigation Bar
         </a>
@@ -697,7 +697,7 @@
         <a href="card.html" 
            class="block w-full text-left py-1.5 px-4 transition-all duration-300 border-l-3 font-normal sw-nav-item
            
-               sw-nav-active font-medium
+               border-transparent hover:underline
            ">
             Card
         </a>
@@ -1097,29 +1097,68 @@
         <!-- Component Content Area -->
         <main class="flex-1 bg-white min-w-0 px-30">
             
-<div class="max-w-4xl mx-auto px-6 py-8">
+<div class="max-w-[1440px] mx-auto px-6 py-8">
     
     <!-- Page Title -->
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Card</h1>
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Navigation Bar</h1>
     
     <p class="text-gray-700 leading-relaxed mb-8">
-        Cards are used to group related content and actions into a single container. They help organize information into digestible blocks for users.
+        The primary navigation components for Sport Wales. These components handle global navigation, search functionality, and user portal access.
     </p>
 
-    <!-- Component 1: Basic Card -->
+    <!-- Component 1: Standard Global Nav (Blue) -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Basic Card</h2>
-        <p class="text-gray-700 mb-6">The standard card used for general content blocks. It uses a white background, subtle shadow, and 8px border radius.</p>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Standard Global Nav</h2>
+        <p class="text-gray-700 mb-6">The default navigation bar used across the public site. It features the logo, main navigation links, search, profile access, and language toggle.</p>
+        
         <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
-            <div class="p-10 bg-gray-50 flex justify-center">
-                <!-- Live Component -->
-                <div class="sw-card max-w-sm bg-white p-8 shadow-md rounded-[8px] border border-gray-100">
-                    <h3 class="sw-heading-secondary text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
-                    <p class="mb-6 text-gray-700 leading-relaxed">
-                        This is a standard Sport Wales card component. It uses the .sw-card class for consistent padding and rounded corners.
-                    </p>
-                    <a href="#" class="sw-button sw-button-secondary inline-flex items-center justify-center h-12 px-6 font-bold rounded-lg border-2 border-[#164B64] text-[#164B64] hover:bg-[#164B64] hover:text-white transition-all">Read more</a>
-                </div>
+            <!-- Preview Area (Full Width to simulate browser) -->
+            <div class="p-10 bg-gray-50 rounded-lg mb-8">
+                
+                <!-- LIVE COMPONENT START -->
+                <nav class="bg-[#0f3c55] w-full px-8 py-4 flex items-center justify-between font-sans text-white">
+                    <!-- 1. Logo (Left) -->
+                    <div class="shrink-0 mr-8">
+                        <img src="../img/sport-wales.-logo-white.svg" alt="Sport Wales" class="h-10 w-auto" />
+                    </div>
+
+                    <!-- 2. Nav Links (Center/Right) -->
+                    <div class="hidden xl:flex items-center gap-6 text-[15px] font-bold tracking-wide mr-auto ml-8">
+                        <a href="#" class="hover:underline hover:text-gray-200 transition-colors">About us</a>
+                        <a href="#" class="hover:underline hover:text-gray-200 transition-colors">Grants & Funding</a>
+                        <a href="#" class="hover:underline hover:text-gray-200 transition-colors">Guidance & Support</a>
+                        <a href="#" class="hover:underline hover:text-gray-200 transition-colors">Facilities</a>
+                        <a href="#" class="hover:underline hover:text-gray-200 transition-colors">News & Events</a>
+                    </div>
+
+                    <!-- 3. Icons & Utilities (Far Right) -->
+                    <div class="flex items-center gap-5 shrink-0">
+                        <!-- Search Icon -->
+                        <button class="text-white hover:opacity-80">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+
+                        <!-- Profile Icon -->
+                        <button class="text-white hover:opacity-80">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+
+                        <!-- Language Toggle -->
+                        <div class="flex items-center gap-2">
+                            <!-- Toggle Graphic -->
+                            <button class="relative inline-flex h-5 w-9 items-center rounded-full bg-white">
+                                <span class="inline-block h-3 w-3 transform rounded-full bg-[#0f3c55] translate-x-1 transition"></span>
+                            </button>
+                            <span class="text-xs font-bold uppercase tracking-wide">Switch to Welsh</span>
+                        </div>
+                    </div>
+                </nav>
+                <!-- LIVE COMPONENT END -->
+
             </div>
             <div class="border-t border-gray-200">
                 <div id="component1-code-tabs"></div>
@@ -1127,23 +1166,61 @@
         </div>
     </section>
 
-    <!-- Component 2: Card with Image -->
+    <!-- Component 2: Search Focused (Blue) -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Card with Image</h2>
-        <p class="text-gray-700 mb-6">Used when visual context is required. The image is cropped to fit the top of the card while maintaining the 8px radius.</p>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Search Focused Nav</h2>
+        <p class="text-gray-700 mb-6">An expanded version of the standard nav that reveals a prominent search bar. Used for search results pages or when the user initiates a search.</p>
+        
         <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
-            <div class="p-10 bg-gray-50 flex justify-center">
-                <!-- Live Component -->
-                <div class="sw-card max-w-sm bg-white shadow-md rounded-[8px] border border-gray-100 overflow-hidden">
-                    <img class="w-full h-48 object-cover" src="../img/home-hero.webp" alt="Card Header">
-                    <div class="p-6">
-                        <h3 class="sw-heading-secondary text-[#164B64] font-bold text-xl mb-4">News Highlight</h3>
-                        <p class="mb-6 text-gray-700 leading-relaxed">
-                            Cards can include images at the top to provide visual context for articles or projects.
-                        </p>
-                        <a href="#" class="sw-button sw-button-secondary inline-flex items-center justify-center h-12 px-6 font-bold rounded-lg border-2 border-[#164B64] text-[#164B64] hover:bg-[#164B64] hover:text-white transition-all">Read more</a>
+            <div class="p-10 bg-gray-50 rounded-lg mb-8">
+                
+                <!-- LIVE COMPONENT START -->
+                <div class="w-full font-sans text-white">
+                    <!-- Top Section (Same as Standard) -->
+                    <nav class="bg-[#0f3c55] w-full px-8 py-4 flex items-center justify-between">
+                        <!-- Logo -->
+                        <div class="shrink-0 mr-8">
+                            <img src="../img/sport-wales.-logo-white.svg" alt="Sport Wales" class="h-10 w-auto" />
+                        </div>
+
+                        <!-- Links -->
+                        <div class="hidden xl:flex items-center gap-6 text-[15px] font-bold tracking-wide mr-auto ml-8">
+                            <a href="#" class="hover:text-gray-200">About us</a>
+                            <a href="#" class="hover:text-gray-200">Grants & Funding</a>
+                            <a href="#" class="hover:text-gray-200">Guidance & Support</a>
+                            <a href="#" class="hover:text-gray-200">Facilities</a>
+                            <a href="#" class="hover:text-gray-200">News & Events</a>
+                        </div>
+
+                        <!-- Icons -->
+                        <div class="flex items-center gap-5 shrink-0">
+                            <button class="text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></button>
+                            <button class="text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" /></svg></button>
+                            <div class="flex items-center gap-2">
+                                <button class="relative inline-flex h-5 w-9 items-center rounded-full bg-white"><span class="inline-block h-3 w-3 transform rounded-full bg-[#0f3c55] translate-x-1"></span></button>
+                                <span class="text-xs font-bold uppercase tracking-wide">Switch to Welsh</span>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!-- Bottom Section (Search Bar) -->
+                    <div class="bg-[#0f3c55] w-full px-8 pb-10 pt-2 border-t border-[#0f3c55]">
+                        <div class="max-w-4xl mx-auto relative">
+                            <input 
+                                type="text" 
+                                placeholder="Type here" 
+                                class="w-full h-14 pl-4 pr-16 rounded-md text-gray-700 text-lg outline-none shadow-sm"
+                            >
+                            <button class="absolute right-2 top-2 bottom-2 aspect-square bg-[#0f3c55] rounded-md flex items-center justify-center hover:bg-[#164B64] transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
+                <!-- LIVE COMPONENT END -->
+
             </div>
             <div class="border-t border-gray-200">
                 <div id="component2-code-tabs"></div>
@@ -1151,53 +1228,44 @@
         </div>
     </section>
 
-    <!-- Component 3: Solid Green Featured Card -->
+    <!-- Component 3: Portal Login (Red) -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Solid Green Featured Card</h2>
-        <p class="text-gray-700 mb-6">A high-impact variant designed for single-column layouts. Unlike standard cards, this uses <strong>sharp corners</strong> and the brand teal background.</p>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Portal Login Nav</h2>
+        <p class="text-gray-700 mb-6">A variation used for portals and facility sites. It uses the secondary brand red and features a prominent call-to-action login button.</p>
+        
         <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
-            <div class="p-10 bg-gray-50 flex justify-center">
-                <!-- Live Component -->
-                <div class="sw-bg-green w-full max-w-2xl min-h-[300px] p-12 flex flex-col justify-center relative shadow-lg rounded-none">
-                    <h2 class="text-4xl font-extrabold text-white mb-6 uppercase tracking-tight" style="font-family: 'Objektiv MK1', sans-serif;">
-                        Support for clubs
-                    </h2>
-                    <p class="text-white text-lg font-medium mb-8 max-w-md" style="font-family: 'Montserrat', sans-serif;">
-                        Find out how we can help your community club grow with our specialized resources and guidance.
-                    </p>
-                    <button class="sw-button sw-button-start self-start h-12 px-8 uppercase tracking-widest text-sm font-bold bg-[#E32434] text-white e border-none hover:bg-[#C9202E]">
-                        Get support
-                    </button>
-                </div>
+           <div class="p-10 bg-gray-50 rounded-lg mb-8">
+                
+                <!-- LIVE COMPONENT START -->
+                <nav class="bg-[#e30613] w-full px-8 py-5 flex items-center justify-between font-sans text-white">
+                    <!-- Logo -->
+                    <div class="shrink-0 mr-8">
+                        <img src="../img/sport-wales.-logo-white.svg" alt="Sport Wales" class="h-10 w-auto" />
+                    </div>
+
+                    <!-- Links (Centered) -->
+                    <div class="hidden xl:flex items-center justify-center gap-10 text-[15px] font-bold tracking-wide flex-1">
+                        <a href="#" class="hover:text-gray-100">Home</a>
+                        <a href="#" class="hover:text-gray-100">Our Facilities</a>
+                        <a href="#" class="hover:text-gray-100">Programs</a>
+                        <a href="#" class="hover:text-gray-100">About Us</a>
+                        <a href="#" class="hover:text-gray-100">Contact</a>
+                    </div>
+
+                    <!-- Login Button (Right) -->
+                    <div class="shrink-0 ml-8">
+                        <button class="bg-white text-[#e30613] hover:bg-gray-100 transition-colors px-8 py-2.5 rounded-md font-bold text-base shadow-sm">
+                            Login
+                        </button>
+                    </div>
+                </nav>
+                <!-- LIVE COMPONENT END -->
+
             </div>
             <div class="border-t border-gray-200">
                 <div id="component3-code-tabs"></div>
             </div>
         </div>
-    </section>
-
-    <!-- Documentation Sections -->
-    <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">When to use cards</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-            Cards are the primary way to group content. Use them when:
-        </p>
-        <ul class="list-disc ml-6 space-y-2 text-gray-700 leading-relaxed">
-            <li>Presenting a collection of items in a grid (e.g., blog posts, staff profiles).</li>
-            <li>Providing a clear entry point to further information.</li>
-            <li>Highlighting a single, high-importance call to action using the Featured variant.</li>
-        </ul>
-    </section>
-
-    <!-- Sport Wales Specific Guidelines -->
-    <section class="mb-12 bg-blue-50 border border-blue-200 rounded-lg p-6">
-        <h2 class="text-2xl font-bold text-blue-900 mb-4">Sport Wales Guidelines</h2>
-        <ul class="list-disc ml-6 space-y-2 text-blue-800 leading-relaxed">
-            <li><strong>Radius:</strong> Standard cards use 8px rounded corners. Featured cards (Green) use sharp 0px corners.</li>
-            <li><strong>Typography:</strong> Headlines in standard cards use sentence case; Featured cards use Uppercase.</li>
-            <li><strong>Elevation:</strong> Use subtle shadows (`shadow-md`) on white backgrounds to ensure the card stands out from the page.</li>
-            <li><strong>Buttons:</strong> Ensure buttons within cards follow the Sport Wales height (46px) and color standards.</li>
-        </ul>
     </section>
 
 </div>
@@ -1289,59 +1357,120 @@ function ComponentInstructions() {
     return {
         codeExamples: {
             component1: {
-                html: `<div class="sw-card bg-white p-8 shadow-md rounded-[8px] border border-gray-100">
-    <h3 class="text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
-    <p class="mb-6 text-gray-700">Content goes here...</p>
-    <a href="#" class="sw-button-secondary">Read more</a>
-</div>`,
-                css: `.sw-card { border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }`,
-                react: `function BasicCard() {
-    return (
-        <div className="bg-white p-8 rounded-[8px] shadow-md border border-gray-100">
-            <h3 className="text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
-            <button className="border-2 border-[#164B64] text-[#164B64] px-6 py-2 rounded-lg font-bold">Read more</button>
+                html: `<nav class="bg-[#0f3c55] w-full px-8 py-4 flex items-center justify-between font-sans text-white">
+    <!-- Logo -->
+    <div class="shrink-0 mr-8">
+        <img src="dist/img/sport-wales.-logo-white.svg" alt="Sport Wales" class="h-10 w-auto" />
+    </div>
+
+    <!-- Nav Links -->
+    <div class="hidden xl:flex items-center gap-6 text-[15px] font-bold tracking-wide mr-auto ml-8">
+        <a href="#" class="hover:text-gray-200">About us</a>
+        <a href="#" class="hover:text-gray-200">Grants & Funding</a>
+        <!-- Add other links here -->
+    </div>
+
+    <!-- Utilities -->
+    <div class="flex items-center gap-5 shrink-0">
+        <button class="text-white"><!-- Search SVG --></button>
+        <button class="text-white"><!-- Profile SVG --></button>
+        <div class="flex items-center gap-2">
+            <!-- Toggle SVG -->
+            <span class="text-xs font-bold uppercase tracking-wide">Switch to Welsh</span>
         </div>
-    );
+    </div>
+</nav>`,
+                css: `/* Tailwind Utility Classes Used */
+.bg-primary-blue { background-color: #0f3c55; }
+.text-white { color: white; }
+.font-bold { font-weight: 700; }`,
+                react: `function Navbar() {
+  return (
+    <nav className="bg-[#0f3c55] w-full px-8 py-4 flex items-center justify-between text-white">
+      <img src="logo.svg" className="h-10 w-auto mr-8" />
+      <div className="flex gap-6 font-bold mr-auto ml-8">
+        <Link to="/about">About us</Link>
+        <Link to="/grants">Grants & Funding</Link>
+      </div>
+      <div className="flex gap-5 items-center">
+        <SearchIcon />
+        <ProfileIcon />
+        <LanguageToggle />
+      </div>
+    </nav>
+  );
 }`,
-                tailwind: `<div class="bg-white p-8 rounded-[8px] shadow-md border border-gray-100">...</div>`
+                tailwind: `<nav class="bg-[#0f3c55] px-8 py-4 flex justify-between items-center text-white">...</nav>`
             },
             component2: {
-                html: `<div class="bg-white shadow-md rounded-[8px] border border-gray-100 overflow-hidden">
-    <img class="w-full h-48 object-cover" src="/img/path.jpg" alt="Header">
-    <div class="p-6">
-        <h3 class="text-[#164B64] font-bold text-xl mb-4">Title</h3>
-        <p class="text-gray-700 mb-6">Description...</p>
+                html: `<div class="w-full font-sans text-white">
+    <!-- Top Nav -->
+    <nav class="bg-[#0f3c55] px-8 py-4 flex justify-between items-center">
+        <!-- ... Standard Nav Items ... -->
+    </nav>
+
+    <!-- Search Bar Area -->
+    <div class="bg-[#0f3c55] px-8 pb-10 pt-2">
+        <div class="max-w-4xl mx-auto relative">
+            <input 
+                type="text" 
+                placeholder="Type here" 
+                class="w-full h-14 pl-4 pr-16 rounded-md text-gray-700 text-lg outline-none"
+            >
+            <button class="absolute right-2 top-2 bottom-2 aspect-square bg-[#0f3c55] rounded-md flex items-center justify-center">
+                <!-- Search Icon SVG -->
+            </button>
+        </div>
     </div>
 </div>`,
-                css: `/* Ensure overflow-hidden is used to clip the image to the card's 8px radius */`,
-                react: `function ImageCard() {
-    return (
-        <div className="overflow-hidden rounded-[8px] shadow-md border border-gray-100">
-            <img src="..." className="w-full h-48 object-cover" />
-            <div className="p-6">...</div>
-        </div>
-    );
+                css: `/* Ensure the wrapper handles the background color continuity */`,
+                react: `function SearchNav() {
+  return (
+    <div className="w-full text-white">
+       <NavbarHeader />
+       <div className="bg-[#0f3c55] px-8 pb-10 pt-2">
+          <div className="max-w-4xl mx-auto relative">
+             <input className="w-full h-14 rounded-md text-gray-700 pl-4" placeholder="Type here" />
+             <button className="absolute right-2 top-2 bottom-2 bg-[#0f3c55] rounded-md icon-box"></button>
+          </div>
+       </div>
+    </div>
+  );
 }`,
-                tailwind: `<div class="overflow-hidden rounded-[8px] shadow-md border border-gray-100">...</div>`
+                tailwind: `<div class="bg-[#0f3c55] px-8 pb-10">...<input>...</div>`
             },
             component3: {
-                html: `<div class="sw-bg-green w-full p-12 rounded-none shadow-lg">
-    <h2 class="text-4xl font-extrabold text-white uppercase mb-6">Support for clubs</h2>
-    <p class="text-white mb-8">Content...</p>
-    <button class="bg-[#E32434] text-white h-12 px-8 uppercase font-bold">Get support</button>
-</div>`,
-                css: `.sw-bg-green { background-color: #299D91; }`,
-                react: `function FeaturedGreenCard() {
-    return (
-        <div className="bg-[#299D91] p-12 rounded-none">
-            <h2 className="text-4xl font-black text-white uppercase">Headline</h2>
-            <button className="bg-[#E32434] text-white px-8 py-3">Action</button>
-        </div>
-    );
+                html: `<nav class="bg-[#e30613] w-full px-8 py-5 flex items-center justify-between font-sans text-white">
+    <div class="shrink-0 mr-8">
+        <img src="dist/img/sport-wales.-logo-white.svg" alt="Sport Wales" class="h-10 w-auto" />
+    </div>
+
+    <div class="hidden xl:flex items-center justify-center gap-10 text-[15px] font-bold tracking-wide flex-1">
+        <a href="#">Home</a>
+        <a href="#">Our Facilities</a>
+        <a href="#">Programs</a>
+    </div>
+
+    <div class="shrink-0 ml-8">
+        <button class="bg-white text-[#e30613] hover:bg-gray-100 px-8 py-2.5 rounded-md font-bold text-base shadow-sm">
+            Login
+        </button>
+    </div>
+</nav>`,
+                css: `.bg-brand-red { background-color: #e30613; }`,
+                react: `function LoginNav() {
+  return (
+    <nav className="bg-[#e30613] px-8 py-5 flex justify-between items-center text-white">
+      <Logo />
+      <div className="flex gap-10 font-bold justify-center flex-1">
+         <Link to="/">Home</Link>
+         <Link to="/facilities">Our Facilities</Link>
+      </div>
+      <button className="bg-white text-[#e30613] px-8 py-2.5 rounded-md font-bold">Login</button>
+    </nav>
+  );
 }`,
-                tailwind: `<div class="bg-[#299D91] p-12 rounded-none shadow-lg">
-    <h2 class="text-4xl font-black text-white uppercase leading-tight mb-6">Support for clubs</h2>
-</div>`
+                tailwind: `<nav class="bg-[#e30613] px-8 py-5 flex justify-between items-center text-white">...</nav>`
             }
         }
     };
