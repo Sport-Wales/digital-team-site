@@ -39,7 +39,13 @@ const pages = [
     new Page('project-request-form', 'Project Request Form'),
     new Page('blogs-by-anselm-powell', 'Blogs by Anselm Powell'),
 
-
+    // Introduction Section - Design Library
+    new Page('design-library/introduction', 'Style Guide - SW Design Library'),
+    new Page('design-library/logo', 'Logo - SW Design Library'), 
+    new Page('design-library/typography', 'Typography - SW Design Library'),
+    new Page('design-library/icons', 'Icons - SW Design Library'),
+    
+    // Components - Design Library
     new Page('design-library/button', 'Button - SW Design Library'),
     new Page('design-library/card', 'Card - SW Design Library'),
     new Page('design-library/card-no-btn', 'Card No Button - SW Design Library'),

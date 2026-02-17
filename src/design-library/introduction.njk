@@ -1,0 +1,134 @@
+{% extends "design-library-base.njk" %}
+{% set activePage = 'introduction' %}
+{% set activeGroup = 'styleguide' %}
+
+{% block componentContent %}
+<div class="max-w-4xl mx-auto px-6 py-8">
+    
+    <!-- Page Title -->
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Introduction</h1>
+    
+    <p class="text-gray-700 leading-relaxed mb-8">
+        Welcome to the Sport Wales Design System. This comprehensive guide ensures consistency, 
+        accessibility, and brand alignment across all our digital products. Our design system 
+        empowers teams to create cohesive, user-centered experiences that reflect Welsh sporting excellence.
+    </p>
+
+    <!-- Brand Colors Section -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Brand Colors</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Our color palette reflects Sport Wales' energy, trust, and connection to Welsh heritage.
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <!-- SW Red -->
+            <div class="text-center">
+                <div class="w-full h-24 rounded-lg mb-3 shadow-md" style="background-color: #E32434;"></div>
+                <h3 class="font-semibold text-gray-900 text-sm">SW Red</h3>
+                <p class="text-xs text-gray-600">#E32434</p>
+                <p class="text-xs text-gray-500">Primary Action</p>
+            </div>
+            
+            <!-- SW Blue -->
+            <div class="text-center">
+                <div class="w-full h-24 rounded-lg mb-3 shadow-md" style="background-color: #164B64;"></div>
+                <h3 class="font-semibold text-gray-900 text-sm">SW Blue</h3>
+                <p class="text-xs text-gray-600">#164B64</p>
+                <p class="text-xs text-gray-500">Primary Brand</p>
+            </div>
+            
+            <!-- SW Green -->
+            <div class="text-center">
+                <div class="w-full h-24 rounded-lg mb-3 shadow-md" style="background-color: #299D91;"></div>
+                <h3 class="font-semibold text-gray-900 text-sm">SW Green</h3>
+                <p class="text-xs text-gray-600">#299D91</p>
+                <p class="text-xs text-gray-500">Secondary</p>
+            </div>
+            
+            <!-- SW Yellow -->
+            <div class="text-center">
+                <div class="w-full h-24 rounded-lg mb-3 shadow-md" style="background-color: #F6B207;"></div>
+                <h3 class="font-semibold text-gray-900 text-sm">SW Yellow</h3>
+                <p class="text-xs text-gray-600">#F6B207</p>
+                <p class="text-xs text-gray-500">Accent</p>
+            </div>
+        </div>
+
+        <!-- Color Usage Guidelines -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <h3 class="text-lg font-bold text-blue-900 mb-4">Color Usage Guidelines</h3>
+            <ul class="list-disc ml-6 space-y-2 text-blue-800 leading-relaxed">
+                <li><strong>SW Red</strong>: Use for primary call-to-action buttons, alerts, and emphasis</li>
+                <li><strong>SW Blue</strong>: Use for navigation, headers, and primary brand elements</li>
+                <li><strong>SW Green</strong>: Use for success states and featured content backgrounds</li>
+                <li><strong>SW Yellow</strong>: Use sparingly for highlights and attention-grabbing elements</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Border Radius -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Border Radius</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Consistent corner rounding creates a cohesive, modern appearance.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center">
+                <div class="w-full h-16 bg-gray-200 mb-3" style="border-radius: 4px;"></div>
+                <h3 class="font-semibold text-gray-900 text-sm">Small (4px)</h3>
+                <p class="text-xs text-gray-500">Input fields, small buttons</p>
+            </div>
+            <div class="text-center">
+                <div class="w-full h-16 bg-gray-200 mb-3" style="border-radius: 8px;"></div>
+                <h3 class="font-semibold text-gray-900 text-sm">Medium (8px)</h3>
+                <p class="text-xs text-gray-500">Cards, buttons (Sport Wales standard)</p>
+            </div>
+            <div class="text-center">
+                <div class="w-full h-16 bg-gray-200 mb-3" style="border-radius: 12px;"></div>
+                <h3 class="font-semibold text-gray-900 text-sm">Large (12px)</h3>
+                <p class="text-xs text-gray-500">Featured cards, modals</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Design Principles -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Design Principles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="border border-gray-200 rounded-lg p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Clear & Simple</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    Every interface should be intuitive and remove unnecessary complexity. 
+                    Users should achieve their goals quickly and confidently.
+                </p>
+            </div>
+            <div class="border border-gray-200 rounded-lg p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Consistent</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    Maintain visual and functional consistency across all touchpoints. 
+                    Similar elements should look and behave the same way.
+                </p>
+            </div>
+            <div class="border border-gray-200 rounded-lg p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Accessible</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    Design for everyone, including users with disabilities. 
+                    Follow WCAG guidelines and test with assistive technologies.
+                </p>
+            </div>
+            <div class="border border-gray-200 rounded-lg p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Welsh Identity</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    Reflect Welsh culture and values while maintaining international usability. 
+                    Use bilingual content where appropriate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

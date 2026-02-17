@@ -12,9 +12,9 @@
         <a href="{{ url }}" 
            class="block w-full text-left py-1.5 px-4 transition-all duration-300 border-l-3 font-normal sw-nav-item
            {% if activePage == id %}
-               sw-nav-active font-medium
+               sw-nav-active font-medium border-[#164B64]
            {% else %}
-               border-transparent hover:underline
+               border-transparent hover:underline hover:border-gray-200
            {% endif %}">
             {{ text }}
         </a>
@@ -25,16 +25,21 @@
   MACRO: Navigation Group (Dropdown)
   - title: The group header text (e.g. "Buttons")
   - isActiveGroup: Boolean. If true, the dropdown will be open by default.
+  - groupId: Unique ID for the group to match against activeGroup variable
 #}
-{% macro navGroup(title, isActiveGroup=false) %}
+{% macro navGroup(title, isActiveGroup=false, groupId="") %}
 <details class="group mb-2" {% if isActiveGroup %}open{% endif %}>
-    <!-- The Clickable Header -->
-    <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header">
+    <!-- The Clickable Header - ONLY this gets the border -->
+    <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-2 transition-all
+                   {% if activeGroup == groupId %}
+                       border-[#164B64] bg-slate-50
+                   {% else %}
+                       border-transparent hover:border-gray-200
+                   {% endif %}">
         <h3 class="select-none">{{ title }}</h3>
-        
     </summary>
     
-    <!-- The Dropdown Content -->
+    <!-- The Dropdown Content - NO border styling here -->
     <ul class="space-y-0 pl-1 mt-1">
         {{ caller() }}
     </ul>
@@ -55,8 +60,17 @@
                     <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">SW Component Library</p>
                 </div>
 
+                <!-- NEW: Style Guide Section -->
+                {% call navGroup('Style Guide', false, 'styleguide') %}
+                    {{ navItem('Introduction', 'introduction.html', 'introduction') }}
+                    {{ navItem('Color', 'color.html', 'color') }}
+                    {{ navItem('Logo', 'logo.html', 'logo') }}
+                    {{ navItem('Typography', 'typography.html', 'typography') }}
+                    {{ navItem('Icons', 'icons.html', 'icons') }}
+                {% endcall %}
+
                 <!-- 1. Global Components -->
-                {% call navGroup('Global Components') %}
+                {% call navGroup('Global Components', false, 'global') %}
                     {{ navItem('Cookie Banner', ' cookie-banner.html', 'cookie-banner') }}
                     {{ navItem('Navigation Bar', 'navbar.html', 'navbar') }}
                     {{ navItem('Navbar - Booking', ' navbar-booking.html', 'navbar-booking') }}
@@ -65,7 +79,7 @@
                 {% endcall %}
 
                 <!-- 2. Buttons (Open by default since it contains our main Button component) -->
-                {% call navGroup('Buttons', true) %}
+                {% call navGroup('Buttons', true, 'buttons') %}
                     {{ navItem('Buttons', 'button.html', 'button') }} 
                     {{ navItem('Booking Buttons', ' buttons-booking.html', 'buttons-booking') }}
                     {{ navItem('Login Buttons', ' buttons-login.html', 'buttons-login') }}
@@ -74,7 +88,7 @@
                 {% endcall %} 
 
                 <!-- 3. Input & Form Components -->
-                {% call navGroup('Input & Form Components') %}
+                {% call navGroup('Input & Form Components', false, 'forms') %}
                     {{ navItem('Character Count', ' character-count.html', 'character-count') }}
                     {{ navItem('Checkboxes', ' checkboxes.html', 'checkboxes') }}
                     {{ navItem('Date Input', ' date-input.html', 'date-input') }}
@@ -93,7 +107,7 @@
                 {% endcall %}
 
                 <!-- 4. Navigation Components -->
-                {% call navGroup('Navigation Components') %}
+                {% call navGroup('Navigation Components', false, 'navigation') %}
                     {{ navItem('Back Link', ' back-link.html', 'back-link') }}
                     {{ navItem('Breadcrumbs', ' breadcrumbs.html', 'breadcrumbs') }}
                     {{ navItem('Exit this page', ' exit-page.html', 'exit-page') }}
@@ -105,7 +119,7 @@
                 {% endcall %}
 
                 <!-- 5. Layout & Structure -->
-                {% call navGroup('Layout & Structure') %}
+                {% call navGroup('Layout & Structure', false, 'layout') %}
                     {{ navItem('Accordion', ' accordion.html', 'accordion') }}
                     {{ navItem('Details/show more', ' details.html', 'details') }}
                     {{ navItem('Fieldset', ' fieldset.html', 'fieldset') }}
@@ -114,14 +128,14 @@
                 {% endcall %}
 
                 <!-- 6. Card Designs -->
-                {% call navGroup('Card') %}
+                {% call navGroup('Card', false, 'cards') %}
                     {{ navItem('Card', 'card.html', 'card') }}
                     {{ navItem('Card - No Button', 'card-no-btn.html', 'card-no-btn') }}
                     {{ navItem('Card - With Button', 'card-with-btn.html', 'card-with-btn') }}
                 {% endcall %}
 
                 <!-- 7. Feedback & Messaging -->
-                {% call navGroup('Feedback & Messaging') %}
+                {% call navGroup('Feedback & Messaging', false, 'feedback') %}
                     {{ navItem('Confirmation Dialog', ' confirmation-dialog.html', 'confirmation-dialog') }}
                     {{ navItem('Error Message', ' error-message.html', 'error-message') }}
                     {{ navItem('Error Summary', ' error-summary.html', 'error-summary') }}
@@ -133,7 +147,7 @@
                 {% endcall %}
 
                 <!-- 8. Full Components -->
-                {% call navGroup('Full Components') %}
+                {% call navGroup('Full Components', false, 'fullcomponents') %}
                     {{ navItem('Calendar & Date Picker', ' calendar.html', 'calendar') }}
                     {{ navItem('Copy Code', ' copy-code.html', 'copy-code') }}
                     {{ navItem('FAQ', ' faq.html', 'faq') }}
@@ -142,30 +156,30 @@
                 {% endcall %}
 
                 <!-- 9. SW Components -->
-                {% call navGroup('SW Components') %}
+                {% call navGroup('SW Components', false, 'swcomponents') %}
                     {{ navItem('SW Branded Blocks', ' sw-blocks.html', 'sw-blocks') }}
                 {% endcall %}
 
                 <!-- 10. Mobile -->
-                {% call navGroup('Mobile') %}
+                {% call navGroup('Mobile', false, 'mobile') %}
                     {{ navItem('Navigation bar - Mobile', ' navbar-mobile.html', 'navbar-mobile') }}
                     {{ navItem('Footer - Mobile', ' footer-mobile.html', 'footer-mobile') }}
                 {% endcall %}
 
                 <!-- 11. Patterns -->
-                {% call navGroup('Patterns') %}
+                {% call navGroup('Patterns', false, 'patterns') %}
                     {{ navItem('Sign Up Pattern', ' pattern-signup.html', 'pattern-signup') }}
                     {{ navItem('Login Pattern', ' pattern-login.html', 'pattern-login') }}
                     {{ navItem('Payment Details', ' pattern-payment.html', 'pattern-payment') }}
                 {% endcall %}
 
                 <!-- 12. Interactive -->
-                {% call navGroup('Interactive') %}
+                {% call navGroup('Interactive', false, 'interactive') %}
                     {{ navItem('Image Carousel', ' carousel.html', 'carousel') }}
                 {% endcall %}
 
                  <!-- 13. Pages -->
-                 {% call navGroup('Pages') %}
+                 {% call navGroup('Pages', false, 'pages') %}
                     {{ navItem('Page Not Found', ' 404.html', '404') }}
                     {{ navItem('Service Unavailable', ' unavailable.html', 'unavailable') }}
                 {% endcall %}

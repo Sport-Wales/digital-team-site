@@ -1,0 +1,204 @@
+{% extends "design-library-base.njk" %}
+{% set activePage = 'logo' %}
+{% set activeGroup = 'styleguide' %}
+
+{% block componentContent %}
+<div class="max-w-4xl mx-auto px-6 py-8">
+    
+    <!-- Page Title -->
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Logo</h1>
+    
+    <p class="text-gray-700 leading-relaxed mb-8">
+        The Sport Wales logo is the cornerstone of our brand identity. Consistent usage ensures 
+        brand recognition and maintains professional appearance across all digital touchpoints.
+    </p>
+
+    <!-- Primary Logo -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Primary Logo</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            The primary logo should be used in most contexts. It combines the Sport Wales wordmark 
+            with the distinctive dragon symbol.
+        </p>
+        
+        <!-- Logo Display -->
+        <div class="border border-gray-300 rounded-lg mb-8">
+            <div class="p-12 bg-gray-50 flex justify-center">
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <img src="../img/sport-wales-logo-color.svg" alt="Sport Wales Primary Logo" class="h-16 w-auto" />
+                </div>
+            </div>
+            <div class="border-t border-gray-200">
+                <div id="component1-code-tabs"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Variants -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Logo Variants</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- White Logo -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-4">White Logo</h3>
+                <p class="text-gray-600 text-sm mb-4">Use on dark backgrounds or colored overlays</p>
+                <div class="bg-[#164B64] p-8 rounded-lg flex justify-center">
+                    <img src="../img/sport-wales-logo-white.svg" alt="Sport Wales White Logo" class="h-12 w-auto" />
+                </div>
+            </div>
+            
+            <!-- Monochrome Logo -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-4">Monochrome Logo</h3>
+                <p class="text-gray-600 text-sm mb-4">Use when color reproduction is limited</p>
+                <div class="bg-gray-100 p-8 rounded-lg flex justify-center">
+                    <img src="../img/sport-wales-logo-mono.svg" alt="Sport Wales Monochrome Logo" class="h-12 w-auto" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Sizing -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Logo Sizing</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Consistent logo sizing maintains hierarchy and ensures readability across different contexts.
+        </p>
+        
+        <div class="space-y-6">
+            <!-- Large Logo -->
+            <div class="border border-gray-200 rounded-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-base font-semibold text-gray-900">Large (64px height)</h3>
+                    <span class="text-sm text-gray-500">Hero sections, main headers</span>
+                </div>
+                <img src="../img/sport-wales-logo-color.svg" alt="Sport Wales Large Logo" class="h-16 w-auto" />
+            </div>
+            
+            <!-- Medium Logo -->
+            <div class="border border-gray-200 rounded-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-base font-semibold text-gray-900">Medium (48px height)</h3>
+                    <span class="text-sm text-gray-500">Navigation bars, page headers</span>
+                </div>
+                <img src="../img/sport-wales-logo-color.svg" alt="Sport Wales Medium Logo" class="h-12 w-auto" />
+            </div>
+            
+            <!-- Small Logo -->
+            <div class="border border-gray-200 rounded-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-base font-semibold text-gray-900">Small (32px height)</h3>
+                    <span class="text-sm text-gray-500">Footers, compact layouts</span>
+                </div>
+                <img src="../img/sport-wales-logo-color.svg" alt="Sport Wales Small Logo" class="h-8 w-auto" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Clear Space -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Clear Space</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Maintain adequate clear space around the logo to ensure visual impact and readability.
+        </p>
+        
+        <div class="border border-gray-300 rounded-lg p-12 bg-gray-50">
+            <div class="relative flex justify-center">
+                <!-- Clear space visualization -->
+                <div class="relative">
+                    <div class="absolute inset-0 border-2 border-dashed border-red-300" style="margin: -2rem;"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <img src="../img/sport-wales-logo-color.svg" alt="Sport Wales Logo" class="h-12 w-auto" />
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Minimum clear space: half the logo height on all sides
+            </p>
+        </div>
+    </section>
+
+
+
+</div>
+
+{% block componentScripts %}
+<script type="text/babel">
+{% raw %}
+// Logo Component Data
+function ComponentInstructions() {
+    return {
+        codeExamples: {
+            component1: {
+                html: `<!-- Primary Logo Usage -->
+<img src="/img/sport-wales-logo-color.svg" alt="Sport Wales" class="h-12 w-auto" />
+
+<!-- White Logo on Dark Background -->
+<div class="bg-[#164B64] p-4">
+    <img src="/img/sport-wales-logo-white.svg" alt="Sport Wales" class="h-12 w-auto" />
+</div>
+
+<!-- Responsive Logo -->
+<img src="/img/sport-wales-logo-color.svg" 
+     alt="Sport Wales" 
+     class="h-8 md:h-12 w-auto" />`,
+                css: `/* Logo container styling */
+.logo-container {
+    display: inline-block;
+    padding: 1rem; /* Minimum clear space */
+}
+
+/* Responsive logo sizing */
+.logo-large { height: 64px; }
+.logo-medium { height: 48px; }
+.logo-small { height: 32px; }
+
+/* Logo on dark backgrounds */
+.logo-dark-bg {
+    filter: brightness(0) invert(1);
+}`,
+                react: `function Logo({ size = 'medium', variant = 'color', className = '' }) {
+    const sizeClasses = {
+        small: 'h-8',
+        medium: 'h-12', 
+        large: 'h-16'
+    };
+    
+    const logoSrc = \`/img/sport-wales-logo-\${variant}.svg\`;
+    
+    return (
+        <img 
+            src={logoSrc}
+            alt="Sport Wales"
+            className={\`\${sizeClasses[size]} w-auto \${className}\`}
+        />
+    );
+}
+
+// Usage examples:
+// <Logo size="large" />
+// <Logo variant="white" />
+// <Logo size="small" variant="mono" />`,
+                tailwind: `<!-- Standard sizes -->
+<img class="h-8 w-auto" src="logo.svg" alt="Sport Wales" />   <!-- Small -->
+<img class="h-12 w-auto" src="logo.svg" alt="Sport Wales" />  <!-- Medium -->
+<img class="h-16 w-auto" src="logo.svg" alt="Sport Wales" />  <!-- Large -->
+
+<!-- Responsive sizing -->
+<img class="h-8 md:h-12 lg:h-16 w-auto" src="logo.svg" alt="Sport Wales" />`
+            }
+        }
+    };
+}
+
+const componentData = ComponentInstructions();
+
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
+    document.getElementById('component1-code-tabs')
+);
+{% endraw %}
+</script>
+{% endblock %}
+{% endblock %}
