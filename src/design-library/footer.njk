@@ -258,169 +258,51 @@ hljs.highlightAll();
 
 <script type="text/babel">
 {% raw %}
-const { useState } = React;
-
-// Code Tab Component for each section
-function CodeTabsComponent({ codeExamples, tabId }) {
-    const [codeType, setCodeType] = useState('html');
-
-    // Language mapping for highlight.js
-    const getLanguageClass = (type) => {
-        const languageMap = {
-            html: 'language-html',
-            css: 'language-css', 
-            react: 'language-jsx',
-            tailwind: 'language-html' // HTML with Tailwind classes
-        };
-        return languageMap[type] || 'language-html';
-    };
-
-    // Re-highlight code when codeType changes
-    React.useEffect(() => {
-        // Wait for highlight.js to be loaded
-        const highlightCode = () => {
-            if (window.hljs) {
-                // Small delay to ensure DOM is updated
-                setTimeout(() => {
-                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
-                    if (codeBlock) {
-                        // Remove existing highlighting
-                        codeBlock.removeAttribute('data-highlighted');
-                        codeBlock.className = getLanguageClass(codeType);
-                        // Re-highlight
-                        window.hljs.highlightElement(codeBlock);
-                    }
-                }, 50);
-            } else {
-                // If hljs not loaded yet, try again in 100ms
-                setTimeout(highlightCode, 100);
-            }
-        };
-        
-        highlightCode();
-    }, [codeType, tabId]);
-
-    return (
-        <div>
-            {/* Code Type Selector */}
-            <div className="flex" role="tablist">
-                {Object.keys(codeExamples).map((type, index) => (
-                    <button
-                        key={type}
-                        onClick={() => setCodeType(type)}
-                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
-                            codeType === type
-                                ? 'border-blue-600 bg-white text-blue-600'
-                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                    >
-                        {type.toUpperCase()}
-                    </button>
-                ))}
-            </div>
-
-            {/* Code Display */}
-            <div className="bg-white">
-                <div className="relative">
-                    <button
-                        onClick={() => {
-                            navigator.clipboard.writeText(codeExamples[codeType]);
-                            // Visual feedback
-                            const button = event.target;
-                            const originalText = button.textContent;
-                            button.textContent = 'Copied!';
-                            setTimeout(() => {
-                                button.textContent = originalText;
-                            }, 2000);
-                        }}
-                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
-                    >
-                        Copy code
-                    </button>
-                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
-                        <code 
-                            id={`${tabId}-code-block`}
-                            className={getLanguageClass(codeType)}
-                        >
-                            {codeExamples[codeType]}
-                        </code>
-                    </pre>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-
-
-// Main Component with all code examples
+// Footer Component Data
 function ComponentInstructions() {
-    const componentData = {
+    return {
         codeExamples: {
             component1: {
-                html: `
-                
-                `,
-                css: `
-                
-                `,
-                react: `
-                
-
-                `,
-                tailwind: `
-                `
-            },
-            component2: {
-                html: ``,
-                css: ``
-                react: ``,
-                tailwind: ``
-            },
-            component3: {
-                html: ``,
-                css: ``,
-                react: ``,
-                tailwind: ``
-            }, 
-            component4: {
-                html: ``,
-                css: ``,
-                react: ``,
-                tailwind: ``
-            }, 
+                html: `<footer class="bg-white border-t border-gray-200 mt-8">
+    <div class="max-w-screen-xl mx-auto p-6 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500">© 2024 
+            <a href="https://sport.wales" class="hover:underline">Sport Wales</a>
+        </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
+            <li><a href="accessibility-statement.html" class="hover:underline mr-4 md:mr-6">Accessibility Statement</a></li>
+            <li><a href="privacy-policy.html" class="hover:underline mr-4 md:mr-6">Privacy Policy</a></li>
+            <li><a href="contact.html" class="hover:underline">Contact</a></li>
+        </ul>
+    </div>
+</footer>`,
+                css: `/* Footer uses standard Tailwind spacing and typography */`,
+                react: `function Footer() {
+    return (
+        <footer className="bg-white border-t border-gray-200 mt-8">
+            <div className="max-w-screen-xl mx-auto p-6 md:flex md:items-center md:justify-between">
+                <span className="text-sm text-gray-500">© 2024 Sport Wales</span>
+                <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
+                    <li><Link to="/accessibility" className="hover:underline mr-6">Accessibility Statement</Link></li>
+                    <li><Link to="/privacy" className="hover:underline mr-6">Privacy Policy</Link></li>
+                    <li><Link to="/contact" className="hover:underline">Contact</Link></li>
+                </ul>
+            </div>
+        </footer>
+    );
+}`,
+                tailwind: `<footer class="bg-white border-t border-gray-200 mt-8">...</footer>`
+            }
         }
     };
-
-    return componentData;
 }
 
-// Render all button components systematically
+// Render footer component using centralized CodeTabsComponent
 const componentData = ComponentInstructions();
 
-// Component 1 - Primary Button
 ReactDOM.render(
     <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
     document.getElementById('component1-code-tabs')
 );
-
-// Component 2 - Default Button
-ReactDOM.render(
-    <CodeTabsComponent codeExamples={componentData.codeExamples.component2} tabId="component2" />,
-    document.getElementById('component2-code-tabs')
-);
-
-// Component 3 - Start Button
-ReactDOM.render(
-    <CodeTabsComponent codeExamples={componentData.codeExamples.component3} tabId="component3" />,
-    document.getElementById('component3-code-tabs')
-);
-
-// Component 4 - Secondary Button
-// ReactDOM.render(
-//    <CodeTabsComponent codeExamples={componentData.codeExamples.component4} tabId="component4" />,
-//    document.getElementById('component4-code-tabs')
-// );
 
 
 {% endraw %}

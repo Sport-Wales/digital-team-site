@@ -223,4 +223,128 @@
 }
 </style>
 
+<!-- Centralized Design Library Dependencies -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/css.min.js"></script>
+
+<!-- React CDN -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+{% raw %}
+const { useState, useEffect } = React;
+
+// Centralized CodeTabsComponent - FIXED COPY BUTTON
+function CodeTabsComponent({ codeExamples, tabId }) {
+    const [codeType, setCodeType] = useState('html');
+    const [copyStatus, setCopyStatus] = useState('Copy code');
+
+    // Language mapping for highlight.js
+    const getLanguageClass = (type) => {
+        const languageMap = {
+            html: 'language-html',
+            css: 'language-css', 
+            react: 'language-jsx',
+            tailwind: 'language-html'
+        };
+        return languageMap[type] || 'language-html';
+    };
+
+    // Re-highlight code when codeType changes
+    useEffect(() => {
+        const highlightCode = () => {
+            if (window.hljs) {
+                setTimeout(() => {
+                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
+                    if (codeBlock) {
+                        codeBlock.removeAttribute('data-highlighted');
+                        codeBlock.className = getLanguageClass(codeType);
+                        window.hljs.highlightElement(codeBlock);
+                    }
+                }, 50);
+            } else {
+                setTimeout(highlightCode, 100);
+            }
+        };
+        highlightCode();
+    }, [codeType, tabId]);
+
+    // FIXED COPY BUTTON - Uses React state instead of DOM manipulation
+    const handleCopyClick = async () => {
+        try {
+            await navigator.clipboard.writeText(codeExamples[codeType]);
+            setCopyStatus('Copied!');
+            setTimeout(() => {
+                setCopyStatus('Copy code');
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            setCopyStatus('Failed to copy');
+            setTimeout(() => {
+                setCopyStatus('Copy code');
+            }, 2000);
+        }
+    };
+
+    return (
+        <div>
+            {/* Code Type Selector */}
+            <div className="flex" role="tablist">
+                {Object.keys(codeExamples).map((type, index) => (
+                    <button
+                        key={type}
+                        onClick={() => setCodeType(type)}
+                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
+                            codeType === type
+                                ? 'border-blue-600 bg-white text-blue-600'
+                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        }`}
+                    >
+                        {type.toUpperCase()}
+                    </button>
+                ))}
+            </div>
+
+            {/* Code Display */}
+            <div className="bg-white">
+                <div className="relative">
+                    <button
+                        onClick={handleCopyClick}
+                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
+                    >
+                        {copyStatus}
+                    </button>
+                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
+                        <code 
+                            id={`${tabId}-code-block`}
+                            className={getLanguageClass(codeType)}
+                        >
+                            {codeExamples[codeType]}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// Initialize highlight.js
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.hljs) {
+        window.hljs.configure({
+            languages: ['html', 'css', 'javascript', 'jsx']
+        });
+        window.hljs.highlightAll();
+    }
+});
+{% endraw %}
+</script>
+
+{% block componentScripts %}{% endblock %}
+
 {% endblock %}

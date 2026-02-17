@@ -1270,89 +1270,10 @@
 
 </div>
 
-<!-- Dependencies -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script type="text/babel">
 
-const { useState, useEffect } = React;
-
-function CodeTabsComponent({ codeExamples, tabId }) {
-    const [codeType, setCodeType] = useState('html');
-
-    const getLanguageClass = (type) => {
-        const languageMap = {
-            html: 'language-html',
-            css: 'language-css', 
-            react: 'language-jsx',
-            tailwind: 'language-html'
-        };
-        return languageMap[type] || 'language-html';
-    };
-
-    useEffect(() => {
-        const highlightCode = () => {
-            if (window.hljs) {
-                setTimeout(() => {
-                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
-                    if (codeBlock) {
-                        codeBlock.removeAttribute('data-highlighted');
-                        codeBlock.className = getLanguageClass(codeType);
-                        window.hljs.highlightElement(codeBlock);
-                    }
-                }, 50);
-            } else {
-                setTimeout(highlightCode, 100);
-            }
-        };
-        highlightCode();
-    }, [codeType, tabId]);
-
-    return (
-        <div>
-            <div className="flex" role="tablist">
-                {Object.keys(codeExamples).map((type) => (
-                    <button
-                        key={type}
-                        onClick={() => setCodeType(type)}
-                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
-                            codeType === type
-                                ? 'border-blue-600 bg-white text-blue-600'
-                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                    >
-                        {type.toUpperCase()}
-                    </button>
-                ))}
-            </div>
-            <div className="bg-white">
-                <div className="relative">
-                    <button
-                        onClick={() => {
-                            navigator.clipboard.writeText(codeExamples[codeType]);
-                            const button = event.currentTarget;
-                            button.textContent = 'Copied!';
-                            setTimeout(() => { button.textContent = 'Copy code'; }, 2000);
-                        }}
-                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
-                    >
-                        Copy code
-                    </button>
-                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
-                        <code id={`${tabId}-code-block`} className={getLanguageClass(codeType)}>
-                            {codeExamples[codeType]}
-                        </code>
-                    </pre>
-                </div>
-            </div>
-        </div>
-    );
-}
-
+// Navbar Component Data
 function ComponentInstructions() {
     return {
         codeExamples: {
@@ -1493,6 +1414,7 @@ ReactDOM.render(
 
 </script>
 
+
         </main>
     </div>
 </div>
@@ -1539,6 +1461,273 @@ ReactDOM.render(
     background-color: transparent !important;
 }
 </style>
+
+<!-- Centralized Design Library Dependencies -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/css.min.js"></script>
+
+<!-- React CDN -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+const { useState, useEffect } = React;
+
+// Centralized CodeTabsComponent - FIXED COPY BUTTON
+function CodeTabsComponent({ codeExamples, tabId }) {
+    const [codeType, setCodeType] = useState('html');
+    const [copyStatus, setCopyStatus] = useState('Copy code');
+
+    // Language mapping for highlight.js
+    const getLanguageClass = (type) => {
+        const languageMap = {
+            html: 'language-html',
+            css: 'language-css', 
+            react: 'language-jsx',
+            tailwind: 'language-html'
+        };
+        return languageMap[type] || 'language-html';
+    };
+
+    // Re-highlight code when codeType changes
+    useEffect(() => {
+        const highlightCode = () => {
+            if (window.hljs) {
+                setTimeout(() => {
+                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
+                    if (codeBlock) {
+                        codeBlock.removeAttribute('data-highlighted');
+                        codeBlock.className = getLanguageClass(codeType);
+                        window.hljs.highlightElement(codeBlock);
+                    }
+                }, 50);
+            } else {
+                setTimeout(highlightCode, 100);
+            }
+        };
+        highlightCode();
+    }, [codeType, tabId]);
+
+    // FIXED COPY BUTTON - Uses React state instead of DOM manipulation
+    const handleCopyClick = async () => {
+        try {
+            await navigator.clipboard.writeText(codeExamples[codeType]);
+            setCopyStatus('Copied!');
+            setTimeout(() => {
+                setCopyStatus('Copy code');
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            setCopyStatus('Failed to copy');
+            setTimeout(() => {
+                setCopyStatus('Copy code');
+            }, 2000);
+        }
+    };
+
+    return (
+        <div>
+            {/* Code Type Selector */}
+            <div className="flex" role="tablist">
+                {Object.keys(codeExamples).map((type, index) => (
+                    <button
+                        key={type}
+                        onClick={() => setCodeType(type)}
+                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
+                            codeType === type
+                                ? 'border-blue-600 bg-white text-blue-600'
+                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        }`}
+                    >
+                        {type.toUpperCase()}
+                    </button>
+                ))}
+            </div>
+
+            {/* Code Display */}
+            <div className="bg-white">
+                <div className="relative">
+                    <button
+                        onClick={handleCopyClick}
+                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
+                    >
+                        {copyStatus}
+                    </button>
+                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
+                        <code 
+                            id={`${tabId}-code-block`}
+                            className={getLanguageClass(codeType)}
+                        >
+                            {codeExamples[codeType]}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// Initialize highlight.js
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.hljs) {
+        window.hljs.configure({
+            languages: ['html', 'css', 'javascript', 'jsx']
+        });
+        window.hljs.highlightAll();
+    }
+});
+
+</script>
+
+
+<script type="text/babel">
+
+// Navbar Component Data
+function ComponentInstructions() {
+    return {
+        codeExamples: {
+            component1: {
+                html: `<nav class="bg-[#0f3c55] w-full px-8 py-4 flex items-center justify-between font-sans text-white">
+    <!-- Logo -->
+    <div class="shrink-0 mr-8">
+        <img src="dist/img/sport-wales.-logo-white.svg" alt="Sport Wales" class="h-10 w-auto" />
+    </div>
+
+    <!-- Nav Links -->
+    <div class="hidden xl:flex items-center gap-6 text-[15px] font-bold tracking-wide mr-auto ml-8">
+        <a href="#" class="hover:text-gray-200">About us</a>
+        <a href="#" class="hover:text-gray-200">Grants & Funding</a>
+        <!-- Add other links here -->
+    </div>
+
+    <!-- Utilities -->
+    <div class="flex items-center gap-5 shrink-0">
+        <button class="text-white"><!-- Search SVG --></button>
+        <button class="text-white"><!-- Profile SVG --></button>
+        <div class="flex items-center gap-2">
+            <!-- Toggle SVG -->
+            <span class="text-xs font-bold uppercase tracking-wide">Switch to Welsh</span>
+        </div>
+    </div>
+</nav>`,
+                css: `/* Tailwind Utility Classes Used */
+.bg-primary-blue { background-color: #0f3c55; }
+.text-white { color: white; }
+.font-bold { font-weight: 700; }`,
+                react: `function Navbar() {
+  return (
+    <nav className="bg-[#0f3c55] w-full px-8 py-4 flex items-center justify-between text-white">
+      <img src="logo.svg" className="h-10 w-auto mr-8" />
+      <div className="flex gap-6 font-bold mr-auto ml-8">
+        <Link to="/about">About us</Link>
+        <Link to="/grants">Grants & Funding</Link>
+      </div>
+      <div className="flex gap-5 items-center">
+        <SearchIcon />
+        <ProfileIcon />
+        <LanguageToggle />
+      </div>
+    </nav>
+  );
+}`,
+                tailwind: `<nav class="bg-[#0f3c55] px-8 py-4 flex justify-between items-center text-white">...</nav>`
+            },
+            component2: {
+                html: `<div class="w-full font-sans text-white">
+    <!-- Top Nav -->
+    <nav class="bg-[#0f3c55] px-8 py-4 flex justify-between items-center">
+        <!-- ... Standard Nav Items ... -->
+    </nav>
+
+    <!-- Search Bar Area -->
+    <div class="bg-[#0f3c55] px-8 pb-10 pt-2">
+        <div class="max-w-4xl mx-auto relative">
+            <input 
+                type="text" 
+                placeholder="Type here" 
+                class="w-full h-14 pl-4 pr-16 rounded-md text-gray-700 text-lg outline-none"
+            >
+            <button class="absolute right-2 top-2 bottom-2 aspect-square bg-[#0f3c55] rounded-md flex items-center justify-center">
+                <!-- Search Icon SVG -->
+            </button>
+        </div>
+    </div>
+</div>`,
+                css: `/* Ensure the wrapper handles the background color continuity */`,
+                react: `function SearchNav() {
+  return (
+    <div className="w-full text-white">
+       <NavbarHeader />
+       <div className="bg-[#0f3c55] px-8 pb-10 pt-2">
+          <div className="max-w-4xl mx-auto relative">
+             <input className="w-full h-14 rounded-md text-gray-700 pl-4" placeholder="Type here" />
+             <button className="absolute right-2 top-2 bottom-2 bg-[#0f3c55] rounded-md icon-box"></button>
+          </div>
+       </div>
+    </div>
+  );
+}`,
+                tailwind: `<div class="bg-[#0f3c55] px-8 pb-10">...<input>...</div>`
+            },
+            component3: {
+                html: `<nav class="bg-[#e30613] w-full px-8 py-5 flex items-center justify-between font-sans text-white">
+    <div class="shrink-0 mr-8">
+        <img src="dist/img/sport-wales.-logo-white.svg" alt="Sport Wales" class="h-10 w-auto" />
+    </div>
+
+    <div class="hidden xl:flex items-center justify-center gap-10 text-[15px] font-bold tracking-wide flex-1">
+        <a href="#">Home</a>
+        <a href="#">Our Facilities</a>
+        <a href="#">Programs</a>
+    </div>
+
+    <div class="shrink-0 ml-8">
+        <button class="bg-white text-[#e30613] hover:bg-gray-100 px-8 py-2.5 rounded-md font-bold text-base shadow-sm">
+            Login
+        </button>
+    </div>
+</nav>`,
+                css: `.bg-brand-red { background-color: #e30613; }`,
+                react: `function LoginNav() {
+  return (
+    <nav className="bg-[#e30613] px-8 py-5 flex justify-between items-center text-white">
+      <Logo />
+      <div className="flex gap-10 font-bold justify-center flex-1">
+         <Link to="/">Home</Link>
+         <Link to="/facilities">Our Facilities</Link>
+      </div>
+      <button className="bg-white text-[#e30613] px-8 py-2.5 rounded-md font-bold">Login</button>
+    </nav>
+  );
+}`,
+                tailwind: `<nav class="bg-[#e30613] px-8 py-5 flex justify-between items-center text-white">...</nav>`
+            }
+        }
+    };
+}
+
+const componentData = ComponentInstructions();
+
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
+    document.getElementById('component1-code-tabs')
+);
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component2} tabId="component2" />,
+    document.getElementById('component2-code-tabs')
+);
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component3} tabId="component3" />,
+    document.getElementById('component3-code-tabs')
+);
+
+</script>
+
 
 
     <footer class="bg-white rounded-lg shadow m-4 mt-5 dark:bg-gray-800">

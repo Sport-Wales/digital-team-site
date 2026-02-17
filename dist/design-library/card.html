@@ -1202,98 +1202,19 @@
 
 </div>
 
-<!-- Dependencies -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script type="text/babel">
 
-const { useState, useEffect } = React;
-
-function CodeTabsComponent({ codeExamples, tabId }) {
-    const [codeType, setCodeType] = useState('html');
-
-    const getLanguageClass = (type) => {
-        const languageMap = {
-            html: 'language-html',
-            css: 'language-css', 
-            react: 'language-jsx',
-            tailwind: 'language-html'
-        };
-        return languageMap[type] || 'language-html';
-    };
-
-    useEffect(() => {
-        const highlightCode = () => {
-            if (window.hljs) {
-                setTimeout(() => {
-                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
-                    if (codeBlock) {
-                        codeBlock.removeAttribute('data-highlighted');
-                        codeBlock.className = getLanguageClass(codeType);
-                        window.hljs.highlightElement(codeBlock);
-                    }
-                }, 50);
-            } else {
-                setTimeout(highlightCode, 100);
-            }
-        };
-        highlightCode();
-    }, [codeType, tabId]);
-
-    return (
-        <div>
-            <div className="flex" role="tablist">
-                {Object.keys(codeExamples).map((type) => (
-                    <button
-                        key={type}
-                        onClick={() => setCodeType(type)}
-                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
-                            codeType === type
-                                ? 'border-blue-600 bg-white text-blue-600'
-                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                    >
-                        {type.toUpperCase()}
-                    </button>
-                ))}
-            </div>
-            <div className="bg-white">
-                <div className="relative">
-                    <button
-                        onClick={() => {
-                            navigator.clipboard.writeText(codeExamples[codeType]);
-                            const button = event.currentTarget;
-                            button.textContent = 'Copied!';
-                            setTimeout(() => { button.textContent = 'Copy code'; }, 2000);
-                        }}
-                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
-                    >
-                        Copy code
-                    </button>
-                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
-                        <code id={`${tabId}-code-block`} className={getLanguageClass(codeType)}>
-                            {codeExamples[codeType]}
-                        </code>
-                    </pre>
-                </div>
-            </div>
-        </div>
-    );
-}
-
+// Card Component Data
 function ComponentInstructions() {
     return {
         codeExamples: {
             component1: {
-                html: `<div class="sw-card bg-white p-8 shadow-md rounded-[8px] border border-gray-100">
-    <h3 class="text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
-    <p class="mb-6 text-gray-700">Content goes here...</p>
-    <a href="#" class="sw-button-secondary">Read more</a>
-</div>`,
+                html: `
+                <div class="sw-card bg-white p-8 shadow-md rounded-[8px] border border-gray-100"><h3 class="text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
+                    <p class="mb-6 text-gray-700">Content goes here...</p>
+                    <a href="#" class="sw-button-secondary">Read more</a>
+                </div>`,
                 css: `.sw-card { border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }`,
                 react: `function BasicCard() {
     return (
@@ -1364,6 +1285,7 @@ ReactDOM.render(
 
 </script>
 
+
         </main>
     </div>
 </div>
@@ -1410,6 +1332,212 @@ ReactDOM.render(
     background-color: transparent !important;
 }
 </style>
+
+<!-- Centralized Design Library Dependencies -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/css.min.js"></script>
+
+<!-- React CDN -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+const { useState, useEffect } = React;
+
+// Centralized CodeTabsComponent - FIXED COPY BUTTON
+function CodeTabsComponent({ codeExamples, tabId }) {
+    const [codeType, setCodeType] = useState('html');
+    const [copyStatus, setCopyStatus] = useState('Copy code');
+
+    // Language mapping for highlight.js
+    const getLanguageClass = (type) => {
+        const languageMap = {
+            html: 'language-html',
+            css: 'language-css', 
+            react: 'language-jsx',
+            tailwind: 'language-html'
+        };
+        return languageMap[type] || 'language-html';
+    };
+
+    // Re-highlight code when codeType changes
+    useEffect(() => {
+        const highlightCode = () => {
+            if (window.hljs) {
+                setTimeout(() => {
+                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
+                    if (codeBlock) {
+                        codeBlock.removeAttribute('data-highlighted');
+                        codeBlock.className = getLanguageClass(codeType);
+                        window.hljs.highlightElement(codeBlock);
+                    }
+                }, 50);
+            } else {
+                setTimeout(highlightCode, 100);
+            }
+        };
+        highlightCode();
+    }, [codeType, tabId]);
+
+    // FIXED COPY BUTTON - Uses React state instead of DOM manipulation
+    const handleCopyClick = async () => {
+        try {
+            await navigator.clipboard.writeText(codeExamples[codeType]);
+            setCopyStatus('Copied!');
+            setTimeout(() => {
+                setCopyStatus('Copy code');
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+            setCopyStatus('Failed to copy');
+            setTimeout(() => {
+                setCopyStatus('Copy code');
+            }, 2000);
+        }
+    };
+
+    return (
+        <div>
+            {/* Code Type Selector */}
+            <div className="flex" role="tablist">
+                {Object.keys(codeExamples).map((type, index) => (
+                    <button
+                        key={type}
+                        onClick={() => setCodeType(type)}
+                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
+                            codeType === type
+                                ? 'border-blue-600 bg-white text-blue-600'
+                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        }`}
+                    >
+                        {type.toUpperCase()}
+                    </button>
+                ))}
+            </div>
+
+            {/* Code Display */}
+            <div className="bg-white">
+                <div className="relative">
+                    <button
+                        onClick={handleCopyClick}
+                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
+                    >
+                        {copyStatus}
+                    </button>
+                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
+                        <code 
+                            id={`${tabId}-code-block`}
+                            className={getLanguageClass(codeType)}
+                        >
+                            {codeExamples[codeType]}
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// Initialize highlight.js
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.hljs) {
+        window.hljs.configure({
+            languages: ['html', 'css', 'javascript', 'jsx']
+        });
+        window.hljs.highlightAll();
+    }
+});
+
+</script>
+
+
+<script type="text/babel">
+
+// Card Component Data
+function ComponentInstructions() {
+    return {
+        codeExamples: {
+            component1: {
+                html: `
+                <div class="sw-card bg-white p-8 shadow-md rounded-[8px] border border-gray-100"><h3 class="text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
+                    <p class="mb-6 text-gray-700">Content goes here...</p>
+                    <a href="#" class="sw-button-secondary">Read more</a>
+                </div>`,
+                css: `.sw-card { border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }`,
+                react: `function BasicCard() {
+    return (
+        <div className="bg-white p-8 rounded-[8px] shadow-md border border-gray-100">
+            <h3 className="text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
+            <button className="border-2 border-[#164B64] text-[#164B64] px-6 py-2 rounded-lg font-bold">Read more</button>
+        </div>
+    );
+}`,
+                tailwind: `<div class="bg-white p-8 rounded-[8px] shadow-md border border-gray-100">...</div>`
+            },
+            component2: {
+                html: `<div class="bg-white shadow-md rounded-[8px] border border-gray-100 overflow-hidden">
+    <img class="w-full h-48 object-cover" src="/img/path.jpg" alt="Header">
+    <div class="p-6">
+        <h3 class="text-[#164B64] font-bold text-xl mb-4">Title</h3>
+        <p class="text-gray-700 mb-6">Description...</p>
+    </div>
+</div>`,
+                css: `/* Ensure overflow-hidden is used to clip the image to the card's 8px radius */`,
+                react: `function ImageCard() {
+    return (
+        <div className="overflow-hidden rounded-[8px] shadow-md border border-gray-100">
+            <img src="..." className="w-full h-48 object-cover" />
+            <div className="p-6">...</div>
+        </div>
+    );
+}`,
+                tailwind: `<div class="overflow-hidden rounded-[8px] shadow-md border border-gray-100">...</div>`
+            },
+            component3: {
+                html: `<div class="sw-bg-green w-full p-12 rounded-none shadow-lg">
+    <h2 class="text-4xl font-extrabold text-white uppercase mb-6">Support for clubs</h2>
+    <p class="text-white mb-8">Content...</p>
+    <button class="bg-[#E32434] text-white h-12 px-8 uppercase font-bold">Get support</button>
+</div>`,
+                css: `.sw-bg-green { background-color: #299D91; }`,
+                react: `function FeaturedGreenCard() {
+    return (
+        <div className="bg-[#299D91] p-12 rounded-none">
+            <h2 className="text-4xl font-black text-white uppercase">Headline</h2>
+            <button className="bg-[#E32434] text-white px-8 py-3">Action</button>
+        </div>
+    );
+}`,
+                tailwind: `<div class="bg-[#299D91] p-12 rounded-none shadow-lg">
+    <h2 class="text-4xl font-black text-white uppercase leading-tight mb-6">Support for clubs</h2>
+</div>`
+            }
+        }
+    };
+}
+
+const componentData = ComponentInstructions();
+
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
+    document.getElementById('component1-code-tabs')
+);
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component2} tabId="component2" />,
+    document.getElementById('component2-code-tabs')
+);
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component3} tabId="component3" />,
+    document.getElementById('component3-code-tabs')
+);
+
+</script>
+
 
 
     <footer class="bg-white rounded-lg shadow m-4 mt-5 dark:bg-gray-800">
