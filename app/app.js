@@ -41,6 +41,7 @@ const pages = [
 
     // Introduction Section - Design Library
     new Page('design-library/introduction', 'Style Guide - SW Design Library'),
+    new Page('design-library/color', 'Colour - SW Design Library'),
     new Page('design-library/logo', 'Logo - SW Design Library'), 
     new Page('design-library/typography', 'Typography - SW Design Library'),
     new Page('design-library/icons', 'Icons - SW Design Library'),
