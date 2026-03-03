@@ -10,7 +10,7 @@
 {% macro navItem(text, url, id) %}
     <li>
         <a href="{{ url }}" 
-           class="block w-full text-left py-1.5 px-4 transition-all duration-300 border-l-3 font-normal sw-nav-item
+           class="block w-full text-left py-1.5 -ml-1 px-4 transition-all duration-300 border-l-4 font-normal sw-nav-item
            {% if activePage == id %}
                sw-nav-active font-medium border-[#164B64]
            {% else %}
@@ -30,7 +30,7 @@
 {% macro navGroup(title, isActiveGroup=false, groupId="") %}
 <details class="group mb-2" {% if isActiveGroup %}open{% endif %}>
     <!-- The Clickable Header - ONLY this gets the border -->
-    <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-2 transition-all
+    <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all
                    {% if activeGroup == groupId %}
                        border-[#164B64] bg-slate-50
                    {% else %}
@@ -211,7 +211,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .sw-nav-group-header:hover {
@@ -221,19 +221,26 @@
 .sw-nav-item {
     font-size: 11px;
     color: #4b5563;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .sw-nav-item:hover {
     color: #164B64;
 }
 
-/* Sport Wales Navigation Active State */
+/* Sport Wales Navigation Active State - STANDARDIZED 4px border */
 .sw-nav-active {
     border-left-color: #164B64 !important;
-    border-left-width: 3px !important;
+    border-left-width: 4px !important;
     color: #164B64 !important;
     font-weight: 500;
     background-color: transparent !important;
+}
+
+/* Ensure active group header also uses 4px border */
+.sw-nav-group-header[style*="border-[#164B64]"],
+.sw-nav-group-header:has(+ ul) {
+    border-left-width: 4px !important;
 }
 </style>
 
