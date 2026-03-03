@@ -16,7 +16,6 @@ const profile = {
     steffan_berrow_profile: 'https://github.com/TaraRhoseyn/digital-team-site/blob/main/dist/img/profiles/steffan-berrow.webp?raw=true',
     tom_morgan_profile: 'https://github.com/TaraRhoseyn/digital-team-site/blob/main/dist/img/profiles/tom-morgan.webp?raw=true',
     rhian_evans_profile: 'https://github.com/TaraRhoseyn/digital-team-site/blob/main/dist/img/profiles/rhian-evans.webp?raw=true',
-    yusra_hussain_profile: 'https://github.com/TaraRhoseyn/digital-team-site/blob/main/dist/img/profiles/yusra-hussain.webp?raw=true',
     generic_user_profile: 'https://github.com/TaraRhoseyn/digital-team-site/blob/main/dist/img/profiles/generic-user.webp?raw=true',
 }
 
@@ -34,7 +33,6 @@ const job = {
     steffan_berrow_job: 'Service Design and Development Lead',
     tom_morgan_job: 'Digital Services Desk Technician',
     rhian_evans_job: 'Assistant Director for Communications and Strategic Digitalisation',
-    yusra_hussain_job: 'Junior Software Developer',
 }
 
 module.exports = {
