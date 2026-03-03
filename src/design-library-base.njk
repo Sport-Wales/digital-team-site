@@ -30,7 +30,7 @@
 {% macro navGroup(title, isActiveGroup=false, groupId="") %}
 <details class="group mb-2" {% if isActiveGroup %}open{% endif %}>
     <!-- The Clickable Header - ONLY this gets the border -->
-    <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all
+    <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all text-xl
                    {% if activeGroup == groupId %}
                        border-[#164B64] bg-slate-50
                    {% else %}
@@ -48,15 +48,15 @@
 
 
 {% block content %}
-<div class="min-h-screen bg-white px-52">
+<div class="container mx-auto px-9 max-w-screen-xl mb-5">
     <div class="flex">
         
         <!-- SIDEBAR NAVIGATION -->
         <nav class="w-60 h-screen sticky top-0 bg-white overflow-y-scroll scrollbar-hide">
-            <div class="py-6 pr-2">
+            <div class="py-6 px-6">
                 
                 <!-- SW Design System Title -->
-                <div class="mb-4 px-3">
+                <div class="mb-4">
                     <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">SW Component Library</p>
                 </div>
 
@@ -188,7 +188,7 @@
         </nav>
         
         <!-- Component Content Area -->
-        <main class="flex-1 bg-white min-w-0 px-30">
+        <main class="flex-1 bg-white min-w-0 px-6">
             {% block componentContent %}{% endblock %}
         </main>
     </div>
