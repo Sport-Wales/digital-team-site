@@ -10,6 +10,114 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
+<style>
+/* Team Carousel Styles */
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.wrapper i {
+    position: absolute;
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+    z-index: 2;
+}
+
+.wrapper i:active {
+    transform: translateY(-50%) scale(0.85);
+}
+
+.wrapper i:first-child {
+    left: -50px;
+}
+
+.wrapper i:last-child {
+    right: -50px;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.carousel.no-transition {
+    scroll-behavior: auto;
+}
+
+.carousel.dragging {
+    scroll-behavior: auto;
+    cursor: grab;
+}
+
+.carousel .card {
+    flex: 0 0 auto;
+    list-style: none;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 20px;
+    margin-right: 16px;
+    width: 250px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.carousel .card .img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.carousel .card .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.carousel .card h2 {
+    margin: 8px 0;
+    text-align: center;
+}
+
+.carousel .card p {
+    margin: 8px 0;
+    text-align: center;
+}
+
+.carousel .card a {
+    margin-top: auto;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 900px) {
+    .wrapper i {
+        display: none;
+    }
+}
+</style>
+
     
     <!-- Critical CSS to prevent navigation flicker -->
     <style>
@@ -396,13 +504,16 @@
             </div>
         </div>
     </div>
+    <!-- Background elements for scroll effects -->
+    <div id="bottom-image" style="display: block;"></div>
+    
     <!-- for large screens -->
     <div class="hidden lg:block">
         <div
             class="team-info"
             id="team-info"
-            style="z-index: 5; width: 96vw; position: relative; background-color: white;">
-            <div class="wrapper ">
+            style="z-index: 5; width: 96vw; position: relative; background-color: white; padding: 40px 0;">
+            <div class="wrapper">
                 <i id="left-scroll" class="fa-solid fa-angle-left"></i>
                 <ul class="carousel">
                     <li class="
