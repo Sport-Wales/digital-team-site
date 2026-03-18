@@ -51,7 +51,7 @@
     <!-- own global stylesheet -->
     <link href="../css/styles.css" rel="stylesheet"/>
     <link href="../css/pres-animation.css" rel="stylesheet"/>
-    <title>Card No Button - SW Design Library | Digital and Service Design Team</title>
+    <title>Logo - SW Design Library | Digital and Service Design Team</title>
   </head>
   <body>
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -213,7 +213,7 @@
     <!-- The Clickable Header - ONLY this gets the border -->
     <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all text-xl
                    
-                       border-transparent hover:border-gray-200
+                       border-[#164B64] bg-slate-50
                    ">
         <h3 class="select-none">Style Guide</h3>
     </summary>
@@ -248,7 +248,7 @@
         <a href="logo.html" 
            class="block w-full text-left py-1.5 -ml-1 px-4 transition-all duration-300 border-l-4 font-normal sw-nav-item
            
-               border-transparent hover:underline hover:border-gray-200
+               sw-nav-active font-medium border-[#164B64]
            ">
             Logo
         </a>
@@ -800,7 +800,7 @@
     <!-- The Clickable Header - ONLY this gets the border -->
     <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all text-xl
                    
-                       border-[#164B64] bg-slate-50
+                       border-transparent hover:border-gray-200
                    ">
         <h3 class="select-none">Card</h3>
     </summary>
@@ -824,7 +824,7 @@
         <a href="card-no-btn.html" 
            class="block w-full text-left py-1.5 -ml-1 px-4 transition-all duration-300 border-l-4 font-normal sw-nav-item
            
-               sw-nav-active font-medium border-[#164B64]
+               border-transparent hover:underline hover:border-gray-200
            ">
             Card - No Button
         </a>
@@ -1230,219 +1230,283 @@
 <div class="max-w-4xl mx-auto px-6 py-8">
     
     <!-- Page Title -->
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Card - No Button</h1>
-
-    <!-- Description -->
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Logo</h1>
+    
     <p class="text-gray-700 leading-relaxed mb-8">
-        This variant is used for high-impact featured content that does not require an immediate call-to-action button. It relies on its strong visual presence to provide information or act as a featured highlight.
+        The Sport Wales logo is the cornerstone of our brand identity. Consistent usage ensures 
+        brand recognition and maintains professional appearance across all digital touchpoints.
     </p>
 
-    <!-- Primary Example Block -->
-    <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
-        <!-- Live Example -->
-        <div class="p-20 bg-gray-100 flex justify-center items-center">
-            
-            <!-- Component Container (Relative for overlay logic) -->
-            <div class="relative w-full max-w-2xl py-10">
-                
-                <!-- 1. The Card Base (The Teal Box) -->
-                <div class="sw-bg-green w-[500px] min-h-[420px] p-12 flex flex-col justify-center relative z-0 shadow-lg">
-                    <div class="max-w-[280px]">
-                        <h2 class="text-5xl font-extrabold text-white mb-8 leading-tight tracking-tight uppercase" style="font-family: 'Objektiv MK1', sans-serif;">
-                            Grants & <br/>funding
-                        </h2>
-                        <p class="text-white text-lg font-medium leading-relaxed" style="font-family: 'Montserrat', sans-serif;">
-                            We distribute funding to community clubs, volunteers, and athletes. Our grants team can support you with information.
-                        </p>
-                    </div>
+    <!-- Primary Logo -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Primary logo</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Our logo, shown in red on white and in white on red.
+        </p>
+        
+        <!-- Logo Display -->
+        <div class="border border-gray-300 rounded-lg mb-8 gap-4 ">
+            <div class="flex">
+                <!-- Red Logo on White -->
+                <div class="flex-1 p-12 bg-white flex justify-center items-center border border-gray-300">
+                    <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Red.svg?raw=true" 
+                         alt="Sport Wales Red Logo" class="h-20 w-auto" />
                 </div>
-
-                <!-- 2. The Slanted Image Overlay (Sits ON TOP of the card) -->
-                <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant shadow-2xl">
-                    <div class="relative w-full h-full">
-                        <img src="../img/card-layout-no-button-graphic.svg" alt="Athletes" class="object-cover w-full h-full">
-                    </div>
+                <!-- White Logo on Red -->
+                <div class="flex-1 p-12 flex justify-center items-center" style="background-color: #E32434;">
+                    <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_White.svg?raw=true" 
+                         alt="Sport Wales White Logo" class="h-20 w-auto" />
                 </div>
-
+            </div>
+            <div class="border-t border-gray-200 bg-red-600 text-white text-center py-3">
+                <button class="text-white font-semibold">Download logos</button>
             </div>
         </div>
+    </section>
+
+    <!-- Black and White Logo -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Black and white logo</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            Our logo, shown in black on white and in white on black.
+        </p>
         
-        <!-- React Code Tabs -->
-        <div class="border-t border-gray-200">
-            <div id="component1-code-tabs"></div>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            If you need to use the logo on different coloured backgrounds or photographs, then you should ensure there is high contrast 
+            so that the logo pops and people can see it clearly.
+        </p>
+        
+        <p class="text-gray-700 leading-relaxed mb-8">
+            On lighter coloured backgrounds, you should use the black logo, and on darker coloured backgrounds you should use the 
+            white logo.
+        </p>
+        
+        <!-- Black and White Logo Display -->
+        <div class="border border-gray-300 rounded-lg mb-12 gap-4 ">
+            <div class="flex">
+                <!-- Black Logo on White -->
+                <div class="flex-1 p-12 bg-white flex justify-center items-center border border-gray-300">
+                    <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Black.svg?raw=true" 
+                         alt="Sport Wales Black Logo" class="h-20 w-auto" />
+                </div>
+                <!-- White Logo on Black -->
+                <div class="flex-1 p-12 bg-black flex justify-center items-center">
+                    <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_White.svg?raw=true" 
+                         alt="Sport Wales White Logo" class="h-20 w-auto" />
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- When to use this component -->
-    <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">When to use this component</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-            Use the Card - No Button variant when you want to showcase featured information without forcing a specific user journey through a button. This is effective for:
-        </p>
-        <ul class="list-disc ml-6 space-y-2 text-gray-700 leading-relaxed mb-6">
-            <li>Highlighting brand messages or mission statements</li>
-            <li>Showcasing imagery alongside descriptive text in a "Featured" section</li>
-            <li>Providing information that doesn't lead to a secondary page</li>
-        </ul>
     </section>
 
-    <!-- How it works -->
+    <!-- Using the Logo on Brand Colours -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">How it works</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-            This design uses a layered "Z-stack" where the content is separated into distinct visual planes:
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Using the logo on our brand colours</h2>
+        <p class="text-gray-700 leading-relaxed mb-8">
+            You may want to overlay the logo on our brand colours (you can find these in the 'Colour' chapter). These are the approved 
+            combinations that ensure the contrast is high enough so that people can still see the logo clearly.
         </p>
         
-        <ul class="list-disc ml-6 space-y-2 text-gray-700 leading-relaxed mb-6">
-            <li><strong>The Base Layer:</strong> A solid Teal (#299D91) rectangle with sharp, non-rounded corners.</li>
-            <li><strong>The Overlay Layer:</strong> An image container with a custom <code>clip-path</code> that sits on top (z-index 10).</li>
-            <li><strong>Typography:</strong> Headlines are stacked and uppercase using Objektiv MK1 to create a bold, modern brand feel.</li>
-            <li><strong>Spacing:</strong> Wide padding (p-12) ensures that the text does not touch the slanted edge of the image.</li>
-        </ul>
+        <!-- Brand Colour Logo Grid -->
+        <div class="grid grid-cols-2 gap-0 border border-gray-300 rounded-lg overflow-hidden mb-8 gap-4">
+            <!-- Red Background -->
+            <div class="p-12 flex justify-center items-center" style="background-color: #E32434;">
+                <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_White.svg?raw=true" 
+                     alt="Sport Wales White Logo on Red" class="h-24 w-auto" />
+            </div>
+            <!-- Blue Background -->
+            <div class="p-12 flex justify-center items-center" style="background-color: #164B64;">
+                <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_White.svg?raw=true" 
+                     alt="Sport Wales White Logo on Blue" class="h-24 w-auto" />
+            </div>
+            <!-- Yellow Background -->
+            <div class="p-12 flex justify-center items-center" style="background-color: #F6B207;">
+                <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Black.svg?raw=true" 
+                     alt="Sport Wales Black Logo on Yellow" class="h-24 w-auto" />
+            </div>
+            <!-- Green Background -->
+            <div class="p-12 flex justify-center items-center" style="background-color: #299D91;">
+                <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_White.svg?raw=true" 
+                     alt="Sport Wales White Logo on Green" class="h-24 w-auto" />
+            </div>
+        </div>
+
+        <!-- Special Note -->
+        <div class="bg-blue-50 p-3 rounded-r-lg">
+            <p class=" font-medium text-sm">
+                <strong>Please Note:</strong> The blue Sport Wales logo shown above is only to be used as part of the Energy Saving Grant supporting brand. It should not be used 
+                anywhere else.
+            </p>
+        </div>
     </section>
 
-    <!-- Sport Wales Specific Guidelines -->
-    <section class="mb-12 bg-blue-50 border border-blue-200 rounded-lg p-6">
-        <h2 class="text-2xl font-bold text-blue-900 mb-4">Sport Wales Guidelines</h2>
-        <ul class="list-disc ml-6 space-y-2 text-blue-800 leading-relaxed">
-            <li><strong>No Border Radius:</strong> This component is an exception to the 8px rule—use sharp corners.</li>
-            <li><strong>Color:</strong> Use the Sport Wales Teal (#299D91) for informational featured cards.</li>
-            <li><strong>Heading Style:</strong> Always use sentence case for standard text but Uppercase for these featured headlines.</li>
-            <li><strong>Image Content:</strong> Ensure the focal point of the image is on the right side so it isn't cut off by the slant.</li>
-        </ul>
+    <!-- Logo Usage Guidelines -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Logo usage guidelines</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Do's -->
+            <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                <h3 class="text-lg font-bold text-green-900 mb-4">✓ Do</h3>
+                <ul class="space-y-2 text-green-800 text-sm">
+                    <li>• Use the provided logo files</li>
+                    <li>• Maintain proportional scaling</li>
+                    <li>• Ensure adequate contrast with background</li>
+                    <li>• Use white version on dark backgrounds</li>
+                    <li>• Use black version on light backgrounds</li>
+                    <li>• Keep minimum clear space around logo</li>
+                </ul>
+            </div>
+            
+            <!-- Don'ts -->
+            <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+                <h3 class="text-lg font-bold text-red-900 mb-4">✗ Don't</h3>
+                <ul class="space-y-2 text-red-800 text-sm">
+                    <li>• Stretch or distort the logo</li>
+                    <li>• Change the logo colors (except approved versions)</li>
+                    <li>• Add effects, shadows, or outlines</li>
+                    <li>• Use the logo smaller than minimum size</li>
+                    <li>• Place logo on busy backgrounds without contrast</li>
+                    <li>• Separate logo elements</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Downloads -->
+    <section class="mb-12 bg-gray-50 border border-gray-200 rounded-lg p-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Logo downloads</h2>
+        <p class="text-gray-700 mb-6">
+            Download the official Sport Wales logo files for use in your projects. All files are provided in SVG format for optimal quality and scalability.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a href="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Red.svg?raw=true" 
+               class="bg-white border border-gray-300 rounded-lg p-4 text-center hover:shadow-md transition-shadow" download>
+                <div class="mb-3">
+                    <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Red.svg?raw=true" 
+                         alt="Red Logo" class="h-12 w-auto mx-auto" />
+                </div>
+                <div class="text-sm font-medium text-gray-900">Red Logo</div>
+                <div class="text-xs text-gray-600">SVG Format</div>
+            </a>
+            
+            <a href="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_White.svg?raw=true" 
+               class="bg-gray-800 border border-gray-600 rounded-lg p-4 text-center hover:shadow-md transition-shadow" download>
+                <div class="mb-3">
+                    <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_White.svg?raw=true" 
+                         alt="White Logo" class="h-12 w-auto mx-auto" />
+                </div>
+                <div class="text-sm font-medium text-white">White Logo</div>
+                <div class="text-xs text-gray-300">SVG Format</div>
+            </a>
+            
+            <a href="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Black.svg?raw=true" 
+               class="bg-white border border-gray-300 rounded-lg p-4 text-center hover:shadow-md transition-shadow" download>
+                <div class="mb-3">
+                    <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Black.svg?raw=true" 
+                         alt="Black Logo" class="h-12 w-auto mx-auto" />
+                </div>
+                <div class="text-sm font-medium text-gray-900">Black Logo</div>
+                <div class="text-xs text-gray-600">SVG Format</div>
+            </a>
+            
+            <a href="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Blue.svg?raw=true" 
+               class="bg-blue-600 border border-blue-700 rounded-lg p-4 text-center hover:shadow-md transition-shadow" download>
+                <div class="mb-3">
+                    <img src="https://github.com/Sport-Wales/digital-team-site/blob/main/dist/img/Sport%20Wales%20Logo_Blue.svg?raw=true" 
+                         alt="Blue Logo" class="h-12 w-auto mx-auto" />
+                </div>
+                <div class="text-sm font-medium text-white">Blue Logo</div>
+                <div class="text-xs text-blue-100">SVG Format</div>
+            </a>
+        </div>
     </section>
 
 </div>
 
-<style>
-    /* Signature Brand Slant */
-    .sw-image-overlay-slant {
-        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    }
-</style>
-
-<!-- Dependencies -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script type="text/babel">
 
-const { useState, useEffect } = React;
-
-function CodeTabsComponent({ codeExamples, tabId }) {
-    const [codeType, setCodeType] = useState('html');
-
-    const getLanguageClass = (type) => {
-        const languageMap = {
-            html: 'language-html',
-            css: 'language-css', 
-            react: 'language-jsx',
-            tailwind: 'language-html'
-        };
-        return languageMap[type] || 'language-html';
-    };
-
-    useEffect(() => {
-        const highlightCode = () => {
-            if (window.hljs) {
-                setTimeout(() => {
-                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
-                    if (codeBlock) {
-                        codeBlock.removeAttribute('data-highlighted');
-                        codeBlock.className = getLanguageClass(codeType);
-                        window.hljs.highlightElement(codeBlock);
-                    }
-                }, 50);
-            } else {
-                setTimeout(highlightCode, 100);
-            }
-        };
-        highlightCode();
-    }, [codeType, tabId]);
-
-    return (
-        <div>
-            <div className="flex" role="tablist">
-                {Object.keys(codeExamples).map((type) => (
-                    <button
-                        key={type}
-                        onClick={() => setCodeType(type)}
-                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
-                            codeType === type
-                                ? 'border-blue-600 bg-white text-blue-600'
-                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                    >
-                        {type.toUpperCase()}
-                    </button>
-                ))}
-            </div>
-            <div className="bg-white">
-                <div className="relative">
-                    <button
-                        onClick={() => {
-                            navigator.clipboard.writeText(codeExamples[codeType]);
-                            const button = event.currentTarget;
-                            const originalText = button.textContent;
-                            button.textContent = 'Copied!';
-                            setTimeout(() => { button.textContent = originalText; }, 2000);
-                        }}
-                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
-                    >
-                        Copy code
-                    </button>
-                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
-                        <code id={`${tabId}-code-block`} className={getLanguageClass(codeType)}>
-                            {codeExamples[codeType]}
-                        </code>
-                    </pre>
-                </div>
-            </div>
-        </div>
-    );
-}
-
+// Logo Component Data
 function ComponentInstructions() {
     return {
         codeExamples: {
             component1: {
-                html: `<!-- Featured Card (No Button) -->
-<div class="relative w-full max-w-2xl py-10">
-    <div class="sw-bg-green w-[500px] min-h-[420px] p-12 relative z-0">
-        <h2 class="text-5xl font-extrabold text-white mb-8 uppercase">Grants & funding</h2>
-        <p class="text-white text-lg font-medium leading-relaxed">We distribute funding...</p>
-    </div>
-    <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant shadow-2xl">
-        <img src="..." class="object-cover w-full h-full">
-    </div>
-</div>`,
-                css: `.sw-bg-green { background-color: #299D91; }
-.sw-image-overlay-slant {
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+                html: `<!-- Primary Logo Usage -->
+<img src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" class="h-12 w-auto" />
+
+<!-- White Logo on Dark Background -->
+<div class="bg-[#164B64] p-4">
+    <img src="./img/Sport Wales Logo_White.svg" alt="Sport Wales" class="h-12 w-auto" />
+</div>
+
+<!-- Black Logo on Light Background -->
+<div class="bg-white p-4">
+    <img src="./img/Sport Wales Logo_Black.svg" alt="Sport Wales" class="h-12 w-auto" />
+</div>
+
+<!-- Responsive Logo -->
+<img src="./img/Sport Wales Logo_Red.svg" 
+     alt="Sport Wales" 
+     class="h-8 md:h-12 w-auto" />`,
+                css: `/* Logo container styling */
+.logo-container {
+    display: inline-block;
+    padding: 1rem; /* Minimum clear space */
+}
+
+/* Responsive logo sizing */
+.logo-large { height: 64px; }
+.logo-medium { height: 48px; }
+.logo-small { height: 32px; }
+
+/* Logo on dark backgrounds */
+.logo-on-dark {
+    /* Use white logo variant */
+}
+
+/* Logo on light backgrounds */
+.logo-on-light {
+    /* Use black or red logo variant */
 }`,
-                react: `const FeaturedCardNoBtn = () => (
-    <div className="relative w-full max-w-2xl py-10">
-        <div className="bg-[#299D91] w-[500px] min-h-[420px] p-12 relative z-0">
-            <h2 className="text-5xl font-black text-white uppercase mb-8 leading-tight">Grants & Funding</h2>
-            <p className="text-white text-lg">Content goes here...</p>
-        </div>
-        <div className="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
-            <img src="..." className="object-cover h-full" />
-        </div>
-    </div>
-);`,
-                tailwind: `<div class="relative w-full max-w-2xl">
-    <div class="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0 rounded-none">
-        <h2 class="text-5xl font-black text-white uppercase leading-tight">GRANTS & FUNDING</h2>
-        <p class="text-white mt-6">Paragraph text...</p>
-    </div>
-    <div class="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
-        <img src="..." class="object-cover h-full" />
-    </div>
-</div>`
+                react: `function Logo({ variant = 'red', size = 'medium', className = '' }) {
+    const sizeClasses = {
+        small: 'h-8',
+        medium: 'h-12', 
+        large: 'h-16'
+    };
+    
+    const logoSrc = \`./img/Sport Wales Logo_\${variant === 'red' ? 'Red' : variant === 'white' ? 'White' : variant === 'black' ? 'Black' : 'Blue'}.svg\`;
+    
+    return (
+        <img 
+            src={logoSrc}
+            alt="Sport Wales"
+            className={\`\${sizeClasses[size]} w-auto \${className}\`}
+        />
+    );
+}
+
+// Usage examples:
+// <Logo variant="red" size="large" />
+// <Logo variant="white" />
+// <Logo variant="black" size="small" />`,
+                tailwind: `<!-- Standard sizes -->
+<img class="h-8 w-auto" src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" />   <!-- Small -->
+<img class="h-12 w-auto" src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" />  <!-- Medium -->
+<img class="h-16 w-auto" src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" />  <!-- Large -->
+
+<!-- Logo on brand colors -->
+<div class="bg-[#E32434] p-8">
+    <img class="h-12 w-auto" src="./img/Sport Wales Logo_White.svg" alt="Sport Wales" />
+</div>
+
+<div class="bg-[#164B64] p-8">
+    <img class="h-12 w-auto" src="./img/Sport Wales Logo_White.svg" alt="Sport Wales" />
+</div>
+
+<!-- Responsive sizing -->
+<img class="h-8 md:h-12 lg:h-16 w-auto" src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" />`
             }
         }
     };
@@ -1456,6 +1520,7 @@ ReactDOM.render(
 );
 
 </script>
+
 
         </main>
     </div>
@@ -1633,6 +1698,102 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
+
+<script type="text/babel">
+
+// Logo Component Data
+function ComponentInstructions() {
+    return {
+        codeExamples: {
+            component1: {
+                html: `<!-- Primary Logo Usage -->
+<img src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" class="h-12 w-auto" />
+
+<!-- White Logo on Dark Background -->
+<div class="bg-[#164B64] p-4">
+    <img src="./img/Sport Wales Logo_White.svg" alt="Sport Wales" class="h-12 w-auto" />
+</div>
+
+<!-- Black Logo on Light Background -->
+<div class="bg-white p-4">
+    <img src="./img/Sport Wales Logo_Black.svg" alt="Sport Wales" class="h-12 w-auto" />
+</div>
+
+<!-- Responsive Logo -->
+<img src="./img/Sport Wales Logo_Red.svg" 
+     alt="Sport Wales" 
+     class="h-8 md:h-12 w-auto" />`,
+                css: `/* Logo container styling */
+.logo-container {
+    display: inline-block;
+    padding: 1rem; /* Minimum clear space */
+}
+
+/* Responsive logo sizing */
+.logo-large { height: 64px; }
+.logo-medium { height: 48px; }
+.logo-small { height: 32px; }
+
+/* Logo on dark backgrounds */
+.logo-on-dark {
+    /* Use white logo variant */
+}
+
+/* Logo on light backgrounds */
+.logo-on-light {
+    /* Use black or red logo variant */
+}`,
+                react: `function Logo({ variant = 'red', size = 'medium', className = '' }) {
+    const sizeClasses = {
+        small: 'h-8',
+        medium: 'h-12', 
+        large: 'h-16'
+    };
+    
+    const logoSrc = \`./img/Sport Wales Logo_\${variant === 'red' ? 'Red' : variant === 'white' ? 'White' : variant === 'black' ? 'Black' : 'Blue'}.svg\`;
+    
+    return (
+        <img 
+            src={logoSrc}
+            alt="Sport Wales"
+            className={\`\${sizeClasses[size]} w-auto \${className}\`}
+        />
+    );
+}
+
+// Usage examples:
+// <Logo variant="red" size="large" />
+// <Logo variant="white" />
+// <Logo variant="black" size="small" />`,
+                tailwind: `<!-- Standard sizes -->
+<img class="h-8 w-auto" src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" />   <!-- Small -->
+<img class="h-12 w-auto" src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" />  <!-- Medium -->
+<img class="h-16 w-auto" src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" />  <!-- Large -->
+
+<!-- Logo on brand colors -->
+<div class="bg-[#E32434] p-8">
+    <img class="h-12 w-auto" src="./img/Sport Wales Logo_White.svg" alt="Sport Wales" />
+</div>
+
+<div class="bg-[#164B64] p-8">
+    <img class="h-12 w-auto" src="./img/Sport Wales Logo_White.svg" alt="Sport Wales" />
+</div>
+
+<!-- Responsive sizing -->
+<img class="h-8 md:h-12 lg:h-16 w-auto" src="./img/Sport Wales Logo_Red.svg" alt="Sport Wales" />`
+            }
+        }
+    };
+}
+
+const componentData = ComponentInstructions();
+
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
+    document.getElementById('component1-code-tabs')
+);
+
+</script>
 
 
 

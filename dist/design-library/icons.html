@@ -51,7 +51,7 @@
     <!-- own global stylesheet -->
     <link href="../css/styles.css" rel="stylesheet"/>
     <link href="../css/pres-animation.css" rel="stylesheet"/>
-    <title>Card No Button - SW Design Library | Digital and Service Design Team</title>
+    <title>Icons - SW Design Library | Digital and Service Design Team</title>
   </head>
   <body>
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -213,7 +213,7 @@
     <!-- The Clickable Header - ONLY this gets the border -->
     <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all text-xl
                    
-                       border-transparent hover:border-gray-200
+                       border-[#164B64] bg-slate-50
                    ">
         <h3 class="select-none">Style Guide</h3>
     </summary>
@@ -270,7 +270,7 @@
         <a href="icons.html" 
            class="block w-full text-left py-1.5 -ml-1 px-4 transition-all duration-300 border-l-4 font-normal sw-nav-item
            
-               border-transparent hover:underline hover:border-gray-200
+               sw-nav-active font-medium border-[#164B64]
            ">
             Icons
         </a>
@@ -800,7 +800,7 @@
     <!-- The Clickable Header - ONLY this gets the border -->
     <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all text-xl
                    
-                       border-[#164B64] bg-slate-50
+                       border-transparent hover:border-gray-200
                    ">
         <h3 class="select-none">Card</h3>
     </summary>
@@ -824,7 +824,7 @@
         <a href="card-no-btn.html" 
            class="block w-full text-left py-1.5 -ml-1 px-4 transition-all duration-300 border-l-4 font-normal sw-nav-item
            
-               sw-nav-active font-medium border-[#164B64]
+               border-transparent hover:underline hover:border-gray-200
            ">
             Card - No Button
         </a>
@@ -1230,219 +1230,423 @@
 <div class="max-w-4xl mx-auto px-6 py-8">
     
     <!-- Page Title -->
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Card - No Button</h1>
-
-    <!-- Description -->
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Icons</h1>
+    
     <p class="text-gray-700 leading-relaxed mb-8">
-        This variant is used for high-impact featured content that does not require an immediate call-to-action button. It relies on its strong visual presence to provide information or act as a featured highlight.
+        Icons provide visual cues that enhance user understanding and create intuitive interfaces. 
+        Our icon system ensures consistency, accessibility, and clarity across all Sport Wales digital platforms.
     </p>
 
-    <!-- Primary Example Block -->
-    <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
-        <!-- Live Example -->
-        <div class="p-20 bg-gray-100 flex justify-center items-center">
-            
-            <!-- Component Container (Relative for overlay logic) -->
-            <div class="relative w-full max-w-2xl py-10">
-                
-                <!-- 1. The Card Base (The Teal Box) -->
-                <div class="sw-bg-green w-[500px] min-h-[420px] p-12 flex flex-col justify-center relative z-0 shadow-lg">
-                    <div class="max-w-[280px]">
-                        <h2 class="text-5xl font-extrabold text-white mb-8 leading-tight tracking-tight uppercase" style="font-family: 'Objektiv MK1', sans-serif;">
-                            Grants & <br/>funding
-                        </h2>
-                        <p class="text-white text-lg font-medium leading-relaxed" style="font-family: 'Montserrat', sans-serif;">
-                            We distribute funding to community clubs, volunteers, and athletes. Our grants team can support you with information.
-                        </p>
-                    </div>
-                </div>
+    <!-- Icon Library -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Icon Library</h2>
+        <p class="text-gray-700 leading-relaxed mb-8">
+            We use FontAwesome as our primary icon library, supplemented by custom Sport Wales icons where needed.
+        </p>
+        
+        <!-- Common Icons Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
+            <!-- Navigation Icons -->
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-home text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Home</p>
+                <p class="text-xs text-gray-500">fa-home</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-search text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Search</p>
+                <p class="text-xs text-gray-500">fa-search</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-user text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">User</p>
+                <p class="text-xs text-gray-500">fa-user</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-bars text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Menu</p>
+                <p class="text-xs text-gray-500">fa-bars</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-times text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Close</p>
+                <p class="text-xs text-gray-500">fa-times</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-arrow-right text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Arrow</p>
+                <p class="text-xs text-gray-500">fa-arrow-right</p>
+            </div>
 
-                <!-- 2. The Slanted Image Overlay (Sits ON TOP of the card) -->
-                <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant shadow-2xl">
-                    <div class="relative w-full h-full">
-                        <img src="../img/card-layout-no-button-graphic.svg" alt="Athletes" class="object-cover w-full h-full">
-                    </div>
-                </div>
+            <!-- Action Icons -->
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-download text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Download</p>
+                <p class="text-xs text-gray-500">fa-download</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-upload text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Upload</p>
+                <p class="text-xs text-gray-500">fa-upload</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-edit text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Edit</p>
+                <p class="text-xs text-gray-500">fa-edit</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-trash text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Delete</p>
+                <p class="text-xs text-gray-500">fa-trash</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-copy text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Copy</p>
+                <p class="text-xs text-gray-500">fa-copy</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-share text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Share</p>
+                <p class="text-xs text-gray-500">fa-share</p>
+            </div>
 
+            <!-- Sport Icons -->
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-futbol text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Football</p>
+                <p class="text-xs text-gray-500">fa-futbol</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-running text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Running</p>
+                <p class="text-xs text-gray-500">fa-running</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-swimmer text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Swimming</p>
+                <p class="text-xs text-gray-500">fa-swimmer</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-dumbbell text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Fitness</p>
+                <p class="text-xs text-gray-500">fa-dumbbell</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-medal text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Medal</p>
+                <p class="text-xs text-gray-500">fa-medal</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-trophy text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Trophy</p>
+                <p class="text-xs text-gray-500">fa-trophy</p>
+            </div>
+
+            <!-- Utility Icons -->
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-calendar text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Calendar</p>
+                <p class="text-xs text-gray-500">fa-calendar</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-envelope text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Email</p>
+                <p class="text-xs text-gray-500">fa-envelope</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-phone text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Phone</p>
+                <p class="text-xs text-gray-500">fa-phone</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-map-marker-alt text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Location</p>
+                <p class="text-xs text-gray-500">fa-map-marker-alt</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-info-circle text-2xl text-gray-700 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Info</p>
+                <p class="text-xs text-gray-500">fa-info-circle</p>
+            </div>
+            <div class="text-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+                <i class="fas fa-check-circle text-2xl text-green-600 mb-2"></i>
+                <p class="text-xs font-semibold text-gray-900">Success</p>
+                <p class="text-xs text-gray-500">fa-check-circle</p>
             </div>
         </div>
+    </section>
+
+    <!-- Icon Sizes -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Icon Sizes</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Consistent icon sizing maintains visual hierarchy and ensures icons remain legible across different contexts.
+        </p>
         
-        <!-- React Code Tabs -->
-        <div class="border-t border-gray-200">
-            <div id="component1-code-tabs"></div>
+        <div class="border border-gray-300 rounded-lg mb-8">
+            <div class="p-8 bg-gray-50">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-6">
+                        <i class="fas fa-heart text-xs text-gray-700"></i>
+                        <span class="text-sm font-mono text-gray-600">12px (text-xs)</span>
+                        <span class="text-sm text-gray-700">Small icons for inline text</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <i class="fas fa-heart text-sm text-gray-700"></i>
+                        <span class="text-sm font-mono text-gray-600">14px (text-sm)</span>
+                        <span class="text-sm text-gray-700">Standard inline icons</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <i class="fas fa-heart text-base text-gray-700"></i>
+                        <span class="text-sm font-mono text-gray-600">16px (text-base)</span>
+                        <span class="text-sm text-gray-700">Button and form icons</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <i class="fas fa-heart text-lg text-gray-700"></i>
+                        <span class="text-sm font-mono text-gray-600">18px (text-lg)</span>
+                        <span class="text-sm text-gray-700">Emphasized icons</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <i class="fas fa-heart text-xl text-gray-700"></i>
+                        <span class="text-sm font-mono text-gray-600">20px (text-xl)</span>
+                        <span class="text-sm text-gray-700">Section icons</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <i class="fas fa-heart text-2xl text-gray-700"></i>
+                        <span class="text-sm font-mono text-gray-600">24px (text-2xl)</span>
+                        <span class="text-sm text-gray-700">Feature icons</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <i class="fas fa-heart text-3xl text-gray-700"></i>
+                        <span class="text-sm font-mono text-gray-600">30px (text-3xl)</span>
+                        <span class="text-sm text-gray-700">Large decorative icons</span>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <i class="fas fa-heart text-4xl text-gray-700"></i>
+                        <span class="text-sm font-mono text-gray-600">36px (text-4xl)</span>
+                        <span class="text-sm text-gray-700">Hero section icons</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200">
+                <div id="component1-code-tabs"></div>
+            </div>
         </div>
-    </div>
-
-    <!-- When to use this component -->
-    <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">When to use this component</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-            Use the Card - No Button variant when you want to showcase featured information without forcing a specific user journey through a button. This is effective for:
-        </p>
-        <ul class="list-disc ml-6 space-y-2 text-gray-700 leading-relaxed mb-6">
-            <li>Highlighting brand messages or mission statements</li>
-            <li>Showcasing imagery alongside descriptive text in a "Featured" section</li>
-            <li>Providing information that doesn't lead to a secondary page</li>
-        </ul>
     </section>
 
-    <!-- How it works -->
+    <!-- Icon Colors -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">How it works</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-            This design uses a layered "Z-stack" where the content is separated into distinct visual planes:
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Icon Colors</h2>
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Use consistent colors that align with our brand palette and provide adequate contrast.
         </p>
         
-        <ul class="list-disc ml-6 space-y-2 text-gray-700 leading-relaxed mb-6">
-            <li><strong>The Base Layer:</strong> A solid Teal (#299D91) rectangle with sharp, non-rounded corners.</li>
-            <li><strong>The Overlay Layer:</strong> An image container with a custom <code>clip-path</code> that sits on top (z-index 10).</li>
-            <li><strong>Typography:</strong> Headlines are stacked and uppercase using Objektiv MK1 to create a bold, modern brand feel.</li>
-            <li><strong>Spacing:</strong> Wide padding (p-12) ensures that the text does not touch the slanted edge of the image.</li>
-        </ul>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="text-center p-6 border border-gray-200 rounded-lg">
+                <i class="fas fa-star text-3xl text-gray-700 mb-3"></i>
+                <h3 class="font-semibold text-gray-900 text-sm mb-1">Default</h3>
+                <p class="text-xs text-gray-600">text-gray-700</p>
+            </div>
+            <div class="text-center p-6 border border-gray-200 rounded-lg">
+                <i class="fas fa-star text-3xl mb-3" style="color: #164B64;"></i>
+                <h3 class="font-semibold text-gray-900 text-sm mb-1">Primary</h3>
+                <p class="text-xs text-gray-600">SW Blue</p>
+            </div>
+            <div class="text-center p-6 border border-gray-200 rounded-lg">
+                <i class="fas fa-star text-3xl mb-3" style="color: #E32434;"></i>
+                <h3 class="font-semibold text-gray-900 text-sm mb-1">Accent</h3>
+                <p class="text-xs text-gray-600">SW Red</p>
+            </div>
+            <div class="text-center p-6 border border-gray-200 rounded-lg">
+                <i class="fas fa-star text-3xl text-green-600 mb-3"></i>
+                <h3 class="font-semibold text-gray-900 text-sm mb-1">Success</h3>
+                <p class="text-xs text-gray-600">text-green-600</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Sport Wales Specific Guidelines -->
+    <!-- Usage in Context -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Usage in Context</h2>
+        
+        <div class="space-y-8">
+            <!-- Buttons with Icons -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Buttons with Icons</h3>
+                <div class="flex flex-wrap gap-4">
+                    <button class="sw-button sw-button-primary">
+                        <i class="fas fa-download mr-2"></i>
+                        Download
+                    </button>
+                    <button class="sw-button sw-button-secondary">
+                        <i class="fas fa-share mr-2"></i>
+                        Share
+                    </button>
+                    <button class="sw-button sw-button-start">
+                        Start now
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Navigation with Icons -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Navigation with Icons</h3>
+                <nav class="bg-white border border-gray-200 rounded-lg p-4">
+                    <ul class="space-y-2">
+                        <li><a href="#" class="flex items-center text-gray-700 hover:text-blue-600 py-2"><i class="fas fa-home w-5 mr-3"></i>Home</a></li>
+                        <li><a href="#" class="flex items-center text-gray-700 hover:text-blue-600 py-2"><i class="fas fa-user w-5 mr-3"></i>Profile</a></li>
+                        <li><a href="#" class="flex items-center text-gray-700 hover:text-blue-600 py-2"><i class="fas fa-cog w-5 mr-3"></i>Settings</a></li>
+                        <li><a href="#" class="flex items-center text-gray-700 hover:text-blue-600 py-2"><i class="fas fa-sign-out-alt w-5 mr-3"></i>Logout</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- Form Fields with Icons -->
+            <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Form Fields with Icons</h3>
+                <div class="space-y-4 max-w-md">
+                    <div class="relative">
+                        <input type="email" placeholder="Enter your email" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <div class="relative">
+                        <input type="password" placeholder="Enter your password" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Icon Guidelines -->
     <section class="mb-12 bg-blue-50 border border-blue-200 rounded-lg p-6">
-        <h2 class="text-2xl font-bold text-blue-900 mb-4">Sport Wales Guidelines</h2>
-        <ul class="list-disc ml-6 space-y-2 text-blue-800 leading-relaxed">
-            <li><strong>No Border Radius:</strong> This component is an exception to the 8px rule—use sharp corners.</li>
-            <li><strong>Color:</strong> Use the Sport Wales Teal (#299D91) for informational featured cards.</li>
-            <li><strong>Heading Style:</strong> Always use sentence case for standard text but Uppercase for these featured headlines.</li>
-            <li><strong>Image Content:</strong> Ensure the focal point of the image is on the right side so it isn't cut off by the slant.</li>
-        </ul>
+        <h2 class="text-2xl font-bold text-blue-900 mb-4">Icon Guidelines</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-blue-800">
+            <div>
+                <h3 class="font-bold mb-3">✓ Do</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>• Use icons consistently across similar contexts</li>
+                    <li>• Ensure icons are large enough (minimum 16px)</li>
+                    <li>• Provide alternative text for screen readers</li>
+                    <li>• Match icon style with overall design language</li>
+                    <li>• Use familiar icons for common actions</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-3">✗ Don't</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>• Use too many different icon styles</li>
+                    <li>• Make icons the primary means of communication</li>
+                    <li>• Use complex icons at small sizes</li>
+                    <li>• Rely solely on color to convey meaning</li>
+                    <li>• Use icons that don't match user expectations</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
 </div>
 
-<style>
-    /* Signature Brand Slant */
-    .sw-image-overlay-slant {
-        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    }
-</style>
-
-<!-- Dependencies -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <script type="text/babel">
 
-const { useState, useEffect } = React;
-
-function CodeTabsComponent({ codeExamples, tabId }) {
-    const [codeType, setCodeType] = useState('html');
-
-    const getLanguageClass = (type) => {
-        const languageMap = {
-            html: 'language-html',
-            css: 'language-css', 
-            react: 'language-jsx',
-            tailwind: 'language-html'
-        };
-        return languageMap[type] || 'language-html';
-    };
-
-    useEffect(() => {
-        const highlightCode = () => {
-            if (window.hljs) {
-                setTimeout(() => {
-                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
-                    if (codeBlock) {
-                        codeBlock.removeAttribute('data-highlighted');
-                        codeBlock.className = getLanguageClass(codeType);
-                        window.hljs.highlightElement(codeBlock);
-                    }
-                }, 50);
-            } else {
-                setTimeout(highlightCode, 100);
-            }
-        };
-        highlightCode();
-    }, [codeType, tabId]);
-
-    return (
-        <div>
-            <div className="flex" role="tablist">
-                {Object.keys(codeExamples).map((type) => (
-                    <button
-                        key={type}
-                        onClick={() => setCodeType(type)}
-                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
-                            codeType === type
-                                ? 'border-blue-600 bg-white text-blue-600'
-                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                    >
-                        {type.toUpperCase()}
-                    </button>
-                ))}
-            </div>
-            <div className="bg-white">
-                <div className="relative">
-                    <button
-                        onClick={() => {
-                            navigator.clipboard.writeText(codeExamples[codeType]);
-                            const button = event.currentTarget;
-                            const originalText = button.textContent;
-                            button.textContent = 'Copied!';
-                            setTimeout(() => { button.textContent = originalText; }, 2000);
-                        }}
-                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
-                    >
-                        Copy code
-                    </button>
-                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
-                        <code id={`${tabId}-code-block`} className={getLanguageClass(codeType)}>
-                            {codeExamples[codeType]}
-                        </code>
-                    </pre>
-                </div>
-            </div>
-        </div>
-    );
-}
-
+// Icons Component Data
 function ComponentInstructions() {
     return {
         codeExamples: {
             component1: {
-                html: `<!-- Featured Card (No Button) -->
-<div class="relative w-full max-w-2xl py-10">
-    <div class="sw-bg-green w-[500px] min-h-[420px] p-12 relative z-0">
-        <h2 class="text-5xl font-extrabold text-white mb-8 uppercase">Grants & funding</h2>
-        <p class="text-white text-lg font-medium leading-relaxed">We distribute funding...</p>
-    </div>
-    <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant shadow-2xl">
-        <img src="..." class="object-cover w-full h-full">
-    </div>
-</div>`,
-                css: `.sw-bg-green { background-color: #299D91; }
-.sw-image-overlay-slant {
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-}`,
-                react: `const FeaturedCardNoBtn = () => (
-    <div className="relative w-full max-w-2xl py-10">
-        <div className="bg-[#299D91] w-[500px] min-h-[420px] p-12 relative z-0">
-            <h2 className="text-5xl font-black text-white uppercase mb-8 leading-tight">Grants & Funding</h2>
-            <p className="text-white text-lg">Content goes here...</p>
-        </div>
-        <div className="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
-            <img src="..." className="object-cover h-full" />
-        </div>
-    </div>
-);`,
-                tailwind: `<div class="relative w-full max-w-2xl">
-    <div class="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0 rounded-none">
-        <h2 class="text-5xl font-black text-white uppercase leading-tight">GRANTS & FUNDING</h2>
-        <p class="text-white mt-6">Paragraph text...</p>
-    </div>
-    <div class="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
-        <img src="..." class="object-cover h-full" />
-    </div>
-</div>`
+                html: `<!-- Basic Icon Usage -->
+<i class="fas fa-home"></i>
+<i class="fas fa-user text-lg"></i>
+<i class="fas fa-star text-2xl text-blue-600"></i>
+
+<!-- Icons in Buttons -->
+<button class="sw-button sw-button-primary">
+    <i class="fas fa-download mr-2"></i>
+    Download
+</button>
+
+<!-- Icons with Text -->
+<div class="flex items-center">
+    <i class="fas fa-envelope text-gray-400 mr-2"></i>
+    <span>Email Address</span>
+</div>
+
+<!-- Icon Sizes -->
+<i class="fas fa-heart text-xs"></i>   <!-- 12px -->
+<i class="fas fa-heart text-sm"></i>   <!-- 14px -->
+<i class="fas fa-heart text-base"></i> <!-- 16px -->
+<i class="fas fa-heart text-lg"></i>   <!-- 18px -->
+<i class="fas fa-heart text-xl"></i>   <!-- 20px -->
+<i class="fas fa-heart text-2xl"></i>  <!-- 24px -->`,
+                css: `/* Icon base styling */
+.icon {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+/* Icon colors */
+.icon-primary { color: #164B64; }
+.icon-accent { color: #E32434; }
+.icon-success { color: #10B981; }
+.icon-warning { color: #F59E0B; }
+
+/* Icon sizes */
+.icon-xs { font-size: 12px; }
+.icon-sm { font-size: 14px; }
+.icon-base { font-size: 16px; }
+.icon-lg { font-size: 18px; }
+.icon-xl { font-size: 20px; }
+.icon-2xl { font-size: 24px; }`,
+                react: `function Icon({ 
+    name, 
+    size = 'base', 
+    color = 'gray-700', 
+    className = '',
+    ...props 
+}) {
+    const sizeClasses = {
+        xs: 'text-xs',
+        sm: 'text-sm',
+        base: 'text-base',
+        lg: 'text-lg',
+        xl: 'text-xl',
+        '2xl': 'text-2xl'
+    };
+    
+    return (
+        <i 
+            className={\`fas fa-\${name} \${sizeClasses[size]} text-\${color} \${className}\`}
+            {...props}
+        />
+    );
+}
+
+// Usage examples:
+// <Icon name="home" size="lg" color="blue-600" />
+// <Icon name="download" size="sm" />
+// <Icon name="star" size="2xl" color="yellow-500" />`,
+                tailwind: `<!-- Icon sizes with Tailwind -->
+<i class="fas fa-home text-xs text-gray-700"></i>
+<i class="fas fa-user text-lg text-blue-600"></i>
+<i class="fas fa-star text-2xl text-yellow-500"></i>
+
+<!-- Icon positioning -->
+<div class="flex items-center space-x-2">
+    <i class="fas fa-envelope"></i>
+    <span>Contact</span>
+</div>
+
+<!-- Button with icon -->
+<button class="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg">
+    <i class="fas fa-download mr-2"></i>
+    Download
+</button>`
             }
         }
     };
@@ -1456,6 +1660,7 @@ ReactDOM.render(
 );
 
 </script>
+
 
         </main>
     </div>
@@ -1633,6 +1838,117 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
+
+<script type="text/babel">
+
+// Icons Component Data
+function ComponentInstructions() {
+    return {
+        codeExamples: {
+            component1: {
+                html: `<!-- Basic Icon Usage -->
+<i class="fas fa-home"></i>
+<i class="fas fa-user text-lg"></i>
+<i class="fas fa-star text-2xl text-blue-600"></i>
+
+<!-- Icons in Buttons -->
+<button class="sw-button sw-button-primary">
+    <i class="fas fa-download mr-2"></i>
+    Download
+</button>
+
+<!-- Icons with Text -->
+<div class="flex items-center">
+    <i class="fas fa-envelope text-gray-400 mr-2"></i>
+    <span>Email Address</span>
+</div>
+
+<!-- Icon Sizes -->
+<i class="fas fa-heart text-xs"></i>   <!-- 12px -->
+<i class="fas fa-heart text-sm"></i>   <!-- 14px -->
+<i class="fas fa-heart text-base"></i> <!-- 16px -->
+<i class="fas fa-heart text-lg"></i>   <!-- 18px -->
+<i class="fas fa-heart text-xl"></i>   <!-- 20px -->
+<i class="fas fa-heart text-2xl"></i>  <!-- 24px -->`,
+                css: `/* Icon base styling */
+.icon {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+/* Icon colors */
+.icon-primary { color: #164B64; }
+.icon-accent { color: #E32434; }
+.icon-success { color: #10B981; }
+.icon-warning { color: #F59E0B; }
+
+/* Icon sizes */
+.icon-xs { font-size: 12px; }
+.icon-sm { font-size: 14px; }
+.icon-base { font-size: 16px; }
+.icon-lg { font-size: 18px; }
+.icon-xl { font-size: 20px; }
+.icon-2xl { font-size: 24px; }`,
+                react: `function Icon({ 
+    name, 
+    size = 'base', 
+    color = 'gray-700', 
+    className = '',
+    ...props 
+}) {
+    const sizeClasses = {
+        xs: 'text-xs',
+        sm: 'text-sm',
+        base: 'text-base',
+        lg: 'text-lg',
+        xl: 'text-xl',
+        '2xl': 'text-2xl'
+    };
+    
+    return (
+        <i 
+            className={\`fas fa-\${name} \${sizeClasses[size]} text-\${color} \${className}\`}
+            {...props}
+        />
+    );
+}
+
+// Usage examples:
+// <Icon name="home" size="lg" color="blue-600" />
+// <Icon name="download" size="sm" />
+// <Icon name="star" size="2xl" color="yellow-500" />`,
+                tailwind: `<!-- Icon sizes with Tailwind -->
+<i class="fas fa-home text-xs text-gray-700"></i>
+<i class="fas fa-user text-lg text-blue-600"></i>
+<i class="fas fa-star text-2xl text-yellow-500"></i>
+
+<!-- Icon positioning -->
+<div class="flex items-center space-x-2">
+    <i class="fas fa-envelope"></i>
+    <span>Contact</span>
+</div>
+
+<!-- Button with icon -->
+<button class="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg">
+    <i class="fas fa-download mr-2"></i>
+    Download
+</button>`
+            }
+        }
+    };
+}
+
+const componentData = ComponentInstructions();
+
+ReactDOM.render(
+    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
+    document.getElementById('component1-code-tabs')
+);
+
+</script>
 
 
 

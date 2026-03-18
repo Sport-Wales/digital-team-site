@@ -51,7 +51,7 @@
     <!-- own global stylesheet -->
     <link href="../css/styles.css" rel="stylesheet"/>
     <link href="../css/pres-animation.css" rel="stylesheet"/>
-    <title>Card No Button - SW Design Library | Digital and Service Design Team</title>
+    <title>Style Guide - SW Design Library | Digital and Service Design Team</title>
   </head>
   <body>
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -213,7 +213,7 @@
     <!-- The Clickable Header - ONLY this gets the border -->
     <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all text-xl
                    
-                       border-transparent hover:border-gray-200
+                       border-[#164B64] bg-slate-50
                    ">
         <h3 class="select-none">Style Guide</h3>
     </summary>
@@ -226,7 +226,7 @@
         <a href="introduction.html" 
            class="block w-full text-left py-1.5 -ml-1 px-4 transition-all duration-300 border-l-4 font-normal sw-nav-item
            
-               border-transparent hover:underline hover:border-gray-200
+               sw-nav-active font-medium border-[#164B64]
            ">
             Introduction
         </a>
@@ -800,7 +800,7 @@
     <!-- The Clickable Header - ONLY this gets the border -->
     <summary class="flex items-center justify-between px-3 py-2 cursor-pointer list-none sw-nav-group-header border-l-4 transition-all text-xl
                    
-                       border-[#164B64] bg-slate-50
+                       border-transparent hover:border-gray-200
                    ">
         <h3 class="select-none">Card</h3>
     </summary>
@@ -824,7 +824,7 @@
         <a href="card-no-btn.html" 
            class="block w-full text-left py-1.5 -ml-1 px-4 transition-all duration-300 border-l-4 font-normal sw-nav-item
            
-               sw-nav-active font-medium border-[#164B64]
+               border-transparent hover:underline hover:border-gray-200
            ">
             Card - No Button
         </a>
@@ -1230,232 +1230,260 @@
 <div class="max-w-4xl mx-auto px-6 py-8">
     
     <!-- Page Title -->
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">Card - No Button</h1>
-
-    <!-- Description -->
-    <p class="text-gray-700 leading-relaxed mb-8">
-        This variant is used for high-impact featured content that does not require an immediate call-to-action button. It relies on its strong visual presence to provide information or act as a featured highlight.
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">Introduction</h1>
+    
+    <p class="text-lg text-gray-700 leading-relaxed mb-12">
+        Welcome to the Sport Wales Digital Design Library - a comprehensive design system that provides 
+        developers and designers with everything needed to build consistent, accessible digital experiences 
+        for Wales' national sports organisation.
     </p>
 
-    <!-- Primary Example Block -->
-    <div class="border border-gray-300 rounded-lg mb-8 overflow-hidden">
-        <!-- Live Example -->
-        <div class="p-20 bg-gray-100 flex justify-center items-center">
+    <!-- Who We Are Section -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Who we are</h2>
+        
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-6">
+                We are the national organisation responsible for developing and promoting sport and 
+                physical activity in Wales. Our work is guided by the Vision for Sport in Wales 
+                and the Sport Wales' Strategy.
+            </p>
             
-            <!-- Component Container (Relative for overlay logic) -->
-            <div class="relative w-full max-w-2xl py-10">
-                
-                <!-- 1. The Card Base (The Teal Box) -->
-                <div class="sw-bg-green w-[500px] min-h-[420px] p-12 flex flex-col justify-center relative z-0 shadow-lg">
-                    <div class="max-w-[280px]">
-                        <h2 class="text-5xl font-extrabold text-white mb-8 leading-tight tracking-tight uppercase" style="font-family: 'Objektiv MK1', sans-serif;">
-                            Grants & <br/>funding
-                        </h2>
-                        <p class="text-white text-lg font-medium leading-relaxed" style="font-family: 'Montserrat', sans-serif;">
-                            We distribute funding to community clubs, volunteers, and athletes. Our grants team can support you with information.
-                        </p>
-                    </div>
-                </div>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                We are the Welsh Government's lead adviser for all things in sport and we work closely 
+                with them in delivering the Vision for Sport in Wales.
+            </p>
+            
+            <p class="text-gray-700 leading-relaxed">
+                We also distribute National Lottery grants and support promising athletes to compete 
+                successfully on the world stage. Our digital platforms serve diverse audiences across Wales.
+            </p>
+        </div>
+    </section>
 
-                <!-- 2. The Slanted Image Overlay (Sits ON TOP of the card) -->
-                <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant shadow-2xl">
-                    <div class="relative w-full h-full">
-                        <img src="../img/card-layout-no-button-graphic.svg" alt="Athletes" class="object-cover w-full h-full">
-                    </div>
-                </div>
+    <!-- How Our Design Library Helps Section -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">How can our design library help you?</h2>
+        
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Our design library ensures all Sport Wales digital products share a unified visual identity 
+                and user experience. It provides pre-built, tested components that follow accessibility 
+                standards and brand guidelines.
+            </p>
+            
+            <p class="text-gray-700 leading-relaxed mb-8">
+                When development teams follow the same component library, typography system, and color palette, 
+                it creates consistent experiences across all touchpoints while dramatically reducing development time.
+            </p>
+            
+            <div class="rounded-lg  mb-5">
+                <h3 class="text-xl font-bold mb-4">When used consistently, the Sport Wales design library will:</h3>
+                <ol class="list-decimal ml-6 space-y-2 leading-relaxed">
+                    <li><strong>Accelerate development</strong> with copy-paste ready components and code examples</li>
+                    <li><strong>Ensure accessibility compliance</strong> through WCAG 2.1 AA tested components</li>
+                    <li><strong>Maintain brand consistency</strong> across all digital platforms and touchpoints</li>
+                    <li><strong>Reduce technical debt</strong> through standardized, maintainable component patterns</li>
+                    <li><strong>Enable rapid prototyping</strong> with a complete component ecosystem</li>
+                    <li><strong>Support team collaboration</strong> with shared design language and specifications</li>
+                </ol>
+            </div>
+            
+            <p class="text-gray-700 leading-relaxed">
+                The design library serves as a bridge between design and development teams, providing clear 
+                specifications, implementation examples, and reusable code that maintains consistency while 
+                allowing for efficient project delivery.
+            </p>
+        </div>
+    </section>
 
+    <!-- Component Library Features -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Component library features</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- Copy-Paste Functionality -->
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                    Instant Code Copy
+                </h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Every component includes a working copy button that instantly copies code to your clipboard. 
+                    No manual selection, no typing errors - just click and paste into your project.
+                </p>
+                <div class="bg-gray-900 p-4 rounded font-mono text-sm text-gray-100">
+                    &lt;button class="sw-button sw-button-primary"&gt;<br>
+                    &nbsp;&nbsp;Save and continue<br>
+                    &lt;/button&gt;
+                </div>
+            </div>
+            
+            <!-- Multiple Framework Support -->
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                    Multi-Framework Support
+                </h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Each component provides code examples in HTML/CSS, React, and Tailwind CSS. 
+                    Switch between implementations instantly to match your project's technology stack.
+                </p>
+                <div class="flex space-x-2">
+                    <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded text-sm font-medium">HTML</span>
+                    <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded text-sm font-medium">React</span>
+                    <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded text-sm font-medium">Tailwind</span>
+                    <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded text-sm font-medium">CSS</span>
+                </div>
+            </div>
+            
+            <!-- Component Variations -->
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                    Component Variations
+                </h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Most components offer multiple variations to suit different use cases. Buttons include 
+                    primary, secondary, warning, and start variants. Cards support different layouts and actions.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-4 py-2 text-white text-sm rounded font-medium" style="background-color: #164B64;">Primary</button>
+                    <button class="px-4 py-2 border text-sm rounded font-medium" style="border-color: #164B64; color: #164B64;">Secondary</button>
+                    <button class="px-4 py-2 text-white text-sm rounded font-medium" style="background-color: #E32434;">Start</button>
+                </div>
+            </div>
+            
+            <!-- Live Examples -->
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">
+                    Live Interactive Examples
+                </h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    See exactly how components look and behave before implementing them. All examples 
+                    include hover states, focus indicators, and responsive behavior demonstrations.
+                </p>
+                <div class="bg-gray-50 p-4 rounded border text-center">
+                    <div class="inline-block text-white px-6 py-2 rounded font-medium" style="background-color: #164B64;">Live Button Example</div>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- Who These Guidelines Are For Section -->
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Who is this design library for?</h2>
         
-        <!-- React Code Tabs -->
-        <div class="border-t border-gray-200">
-            <div id="component1-code-tabs"></div>
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Our design library is here to help us work together to represent Sport Wales digitally.
+            </p>
+            
+            <p class="text-gray-700 leading-relaxed mb-8">
+                This library is designed to make your job simpler, whether you're building a simple website 
+                component, developing a mobile app, or working with our recommended developers and agencies 
+                to create something more complex.
+            </p>
+            
+            <!-- Target Audience Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 mb-3 border-b border-gray-100 pb-3">
+                        Developers & Engineers
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Copy-paste ready code examples in HTML, CSS, React, and Tailwind. Build faster 
+                        with pre-tested, accessible components that follow Sport Wales brand guidelines.
+                    </p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 mb-3 border-b border-gray-100 pb-3">
+                        Designers & UX Teams
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Design tokens, color specifications, typography scales, and component patterns. 
+                        Create consistent interfaces that reflect Welsh sporting excellence.
+                    </p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 mb-3 border-b border-gray-100 pb-3">
+                        Product Managers
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Ensure brand consistency, accessibility compliance, and efficient development 
+                        cycles across all Sport Wales digital products and platforms.
+                    </p>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-bold text-gray-900 mb-3 border-b border-gray-100 pb-3">
+                        External Partners
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Agencies and contractors working on Sport Wales projects can access detailed 
+                        specifications to create digital experiences that match our brand identity.
+                    </p>
+                </div>
+            </div>
+            
+            <p class="text-gray-700 leading-relaxed mb-6">
+                The components and guidelines are divided into clear sections to help different people. 
+                This library is written with our teams and partners in mind – it's all about giving you 
+                the tools and specifications to represent our brand digitally in a confident and consistent way.
+            </p>
+            
+            <p class="text-gray-700 leading-relaxed mb-6">
+                The library will support you in using the Sport Wales design system in a way that adds 
+                value to your work and ensures that our accessibility and brand requirements are met.
+            </p>
+            
+            <p class="text-gray-700 leading-relaxed">
+                This design library is here to support you in your work and when working with developers 
+                or designers. Whenever you need help, you can always refer back to these components and 
+                guidelines – we're all in this together!
+            </p>
         </div>
-    </div>
-
-    <!-- When to use this component -->
-    <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">When to use this component</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-            Use the Card - No Button variant when you want to showcase featured information without forcing a specific user journey through a button. This is effective for:
-        </p>
-        <ul class="list-disc ml-6 space-y-2 text-gray-700 leading-relaxed mb-6">
-            <li>Highlighting brand messages or mission statements</li>
-            <li>Showcasing imagery alongside descriptive text in a "Featured" section</li>
-            <li>Providing information that doesn't lead to a secondary page</li>
-        </ul>
     </section>
 
-    <!-- How it works -->
+    <!-- Style Guide Foundation -->
     <section class="mb-12">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">How it works</h2>
-        <p class="text-gray-700 leading-relaxed mb-4">
-            This design uses a layered "Z-stack" where the content is separated into distinct visual planes:
-        </p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Style guide foundation</h2>
         
-        <ul class="list-disc ml-6 space-y-2 text-gray-700 leading-relaxed mb-6">
-            <li><strong>The Base Layer:</strong> A solid Teal (#299D91) rectangle with sharp, non-rounded corners.</li>
-            <li><strong>The Overlay Layer:</strong> An image container with a custom <code>clip-path</code> that sits on top (z-index 10).</li>
-            <li><strong>Typography:</strong> Headlines are stacked and uppercase using Objektiv MK1 to create a bold, modern brand feel.</li>
-            <li><strong>Spacing:</strong> Wide padding (p-12) ensures that the text does not touch the slanted edge of the image.</li>
-        </ul>
-    </section>
-
-    <!-- Sport Wales Specific Guidelines -->
-    <section class="mb-12 bg-blue-50 border border-blue-200 rounded-lg p-6">
-        <h2 class="text-2xl font-bold text-blue-900 mb-4">Sport Wales Guidelines</h2>
-        <ul class="list-disc ml-6 space-y-2 text-blue-800 leading-relaxed">
-            <li><strong>No Border Radius:</strong> This component is an exception to the 8px rule—use sharp corners.</li>
-            <li><strong>Color:</strong> Use the Sport Wales Teal (#299D91) for informational featured cards.</li>
-            <li><strong>Heading Style:</strong> Always use sentence case for standard text but Uppercase for these featured headlines.</li>
-            <li><strong>Image Content:</strong> Ensure the focal point of the image is on the right side so it isn't cut off by the slant.</li>
-        </ul>
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-8">
+                Our design library is built on a comprehensive style guide that defines the visual 
+                foundation for all Sport Wales digital products. This includes our color system, 
+                typography hierarchy, logo usage, and icon library.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Color System -->
+                <div class="text-center bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-4">Color System</h3>
+                    <p class="text-sm text-gray-600">Brand colors with HEX, RGB, HSL values and accessibility-compliant contrast ratios</p>
+                </div>
+                
+                <!-- Typography -->
+                <div class="text-center bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-4">Typography</h3>
+                    <p class="text-sm text-gray-600">Objektiv MK1 and Montserrat with complete type scale and usage guidelines</p>
+                </div>
+                
+                <!-- Logo Standards -->
+                <div class="text-center bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-4">Logo Standards</h3>
+                    <p class="text-sm text-gray-600">Logo variants, sizing rules, clear space requirements, and downloadable assets</p>
+                </div>
+                
+                <!-- Icon Library -->
+                <div class="text-center bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                    <h3 class="font-bold text-gray-900 mb-4">Icon Library</h3>
+                    <p class="text-sm text-gray-600">FontAwesome icons with Sport Wales sizing standards and semantic usage patterns</p>
+                </div>
+            </div>
+        </div>
     </section>
 
 </div>
-
-<style>
-    /* Signature Brand Slant */
-    .sw-image-overlay-slant {
-        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-    }
-</style>
-
-<!-- Dependencies -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-<script type="text/babel">
-
-const { useState, useEffect } = React;
-
-function CodeTabsComponent({ codeExamples, tabId }) {
-    const [codeType, setCodeType] = useState('html');
-
-    const getLanguageClass = (type) => {
-        const languageMap = {
-            html: 'language-html',
-            css: 'language-css', 
-            react: 'language-jsx',
-            tailwind: 'language-html'
-        };
-        return languageMap[type] || 'language-html';
-    };
-
-    useEffect(() => {
-        const highlightCode = () => {
-            if (window.hljs) {
-                setTimeout(() => {
-                    const codeBlock = document.querySelector(`#${tabId}-code-block`);
-                    if (codeBlock) {
-                        codeBlock.removeAttribute('data-highlighted');
-                        codeBlock.className = getLanguageClass(codeType);
-                        window.hljs.highlightElement(codeBlock);
-                    }
-                }, 50);
-            } else {
-                setTimeout(highlightCode, 100);
-            }
-        };
-        highlightCode();
-    }, [codeType, tabId]);
-
-    return (
-        <div>
-            <div className="flex" role="tablist">
-                {Object.keys(codeExamples).map((type) => (
-                    <button
-                        key={type}
-                        onClick={() => setCodeType(type)}
-                        className={`px-4 py-3 text-sm font-semibold border-b-3 transition-all ${
-                            codeType === type
-                                ? 'border-blue-600 bg-white text-blue-600'
-                                : 'border-transparent bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
-                    >
-                        {type.toUpperCase()}
-                    </button>
-                ))}
-            </div>
-            <div className="bg-white">
-                <div className="relative">
-                    <button
-                        onClick={() => {
-                            navigator.clipboard.writeText(codeExamples[codeType]);
-                            const button = event.currentTarget;
-                            const originalText = button.textContent;
-                            button.textContent = 'Copied!';
-                            setTimeout(() => { button.textContent = originalText; }, 2000);
-                        }}
-                        className="absolute top-2 right-2 px-3 py-1 text-xs bg-gray-700 text-gray-200 hover:bg-gray-600 rounded transition-colors duration-300 border border-gray-600"
-                    >
-                        Copy code
-                    </button>
-                    <pre className="p-1 bg-gray-900 text-gray-100 rounded text-sm font-mono overflow-x-auto">
-                        <code id={`${tabId}-code-block`} className={getLanguageClass(codeType)}>
-                            {codeExamples[codeType]}
-                        </code>
-                    </pre>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function ComponentInstructions() {
-    return {
-        codeExamples: {
-            component1: {
-                html: `<!-- Featured Card (No Button) -->
-<div class="relative w-full max-w-2xl py-10">
-    <div class="sw-bg-green w-[500px] min-h-[420px] p-12 relative z-0">
-        <h2 class="text-5xl font-extrabold text-white mb-8 uppercase">Grants & funding</h2>
-        <p class="text-white text-lg font-medium leading-relaxed">We distribute funding...</p>
-    </div>
-    <div class="absolute top-0 -right-4 w-auto h-full z-10 sw-image-overlay-slant shadow-2xl">
-        <img src="..." class="object-cover w-full h-full">
-    </div>
-</div>`,
-                css: `.sw-bg-green { background-color: #299D91; }
-.sw-image-overlay-slant {
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-}`,
-                react: `const FeaturedCardNoBtn = () => (
-    <div className="relative w-full max-w-2xl py-10">
-        <div className="bg-[#299D91] w-[500px] min-h-[420px] p-12 relative z-0">
-            <h2 className="text-5xl font-black text-white uppercase mb-8 leading-tight">Grants & Funding</h2>
-            <p className="text-white text-lg">Content goes here...</p>
-        </div>
-        <div className="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
-            <img src="..." className="object-cover h-full" />
-        </div>
-    </div>
-);`,
-                tailwind: `<div class="relative w-full max-w-2xl">
-    <div class="bg-[#299D91] w-[500px] min-h-[420px] p-12 z-0 rounded-none">
-        <h2 class="text-5xl font-black text-white uppercase leading-tight">GRANTS & FUNDING</h2>
-        <p class="text-white mt-6">Paragraph text...</p>
-    </div>
-    <div class="absolute top-0 -right-4 w-auto h-full z-10 [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)]">
-        <img src="..." class="object-cover h-full" />
-    </div>
-</div>`
-            }
-        }
-    };
-}
-
-const componentData = ComponentInstructions();
-
-ReactDOM.render(
-    <CodeTabsComponent codeExamples={componentData.codeExamples.component1} tabId="component1" />,
-    document.getElementById('component1-code-tabs')
-);
-
-</script>
 
         </main>
     </div>
