@@ -1289,11 +1289,11 @@ function ComponentInstructions() {
     return {
         codeExamples: {
             component1: {
-                html: `<div class="sw-card bg-white p-8 shadow-md rounded-[8px] border border-gray-100">
-    <h3 class="text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
-    <p class="mb-6 text-gray-700">Content goes here...</p>
-    <a href="#" class="sw-button-secondary">Read more</a>
-</div>`,
+                html: `
+                <div class="sw-card bg-white p-8 shadow-md rounded-[8px] border border-gray-100"><h3 class="text-[#164B64] font-bold text-xl mb-4">Card Title</h3>
+                    <p class="mb-6 text-gray-700">Content goes here...</p>
+                    <a href="#" class="sw-button-secondary">Read more</a>
+                </div>`,
                 css: `.sw-card { border-radius: 8px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }`,
                 react: `function BasicCard() {
     return (
