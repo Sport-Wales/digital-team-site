@@ -100,7 +100,7 @@ const blogs = [
             util.job.mathew_james_job, '8th September, 2025', util.profile.mathew_james_profile),
 	new Blog(
 		'blog14', 'Launching the Sport Wales Governance dashboard – how we worked and what made it a success!', 'Owain Morris',
-		util.job.owain_morris_job, '8th September, 2025', util.profile.owain_morris_profile),
+		util.job.owain_morris_job, '18th December, 2025', util.profile.owain_morris_profile),
 ]
 
 function createPages(type) {
